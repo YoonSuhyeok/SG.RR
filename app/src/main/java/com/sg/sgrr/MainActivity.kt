@@ -10,5 +10,7 @@ class MainActivity : AppCompatActivity() {
 
         // 안드로이드
 
+        // 안드로이드 스튜디오 테스트
+
     }
 }
