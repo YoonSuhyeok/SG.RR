@@ -5,6 +5,35 @@ import retrofit2.Call
 import retrofit2.http.*
 
 interface BsAPI {
+
+    @Headers(
+            "Accept: application/json",
+            "x-api-key: ou9Gri9uej5wx94o3dOYa3rB1ZJ42o0SroCQx5rj")
+    @GET("v1/data/{metaType}")
+    fun getData(
+            @Path ("metaType") metaType: String,
+    )
+    // GetData 추가적인 클래스 설정 필요함
+
+    @Headers(
+            "Accept: application/json",
+            "x-api-key: ou9Gri9uej5wx94o3dOYa3rB1ZJ42o0SroCQx5rj")
+    @GET("v1/rank/top/{seasonId}/{matchingTeamMode}")
+    fun getRankTop(
+            @Path ("seasonId") seasonId: String,
+            @Path ("matchingTeamMode") matchingTeamMode: String
+    ) // 추가적인 클래스 추가 필요
+
+    @Headers(
+            "Accept: application/json",
+            "x-api-key: ou9Gri9uej5wx94o3dOYa3rB1ZJ42o0SroCQx5rj")
+    @GET("v1/user/stats/{userNum}/{seasonId}/{matchingTeamMode}")
+    fun getRankUser(
+            @Path ("userNum") userNum: String,
+            @Path ("seasonId") seasonId: String,
+            @Path ("matchingTeamMode") matchingTeamMode: String
+    ) // 추가적인 클래스 필요
+
     @Headers(
         "Accept: application/json",
         "x-api-key: ou9Gri9uej5wx94o3dOYa3rB1ZJ42o0SroCQx5rj"
@@ -22,15 +51,15 @@ interface BsAPI {
     fun getUserGames(
         @Path ("userNum") userNum: String,
         @Query ("next") next: String
-    )
+    ): Call<games>
 
     @Headers(
             "Accept: application/json",
-            "x-api-key: ou9Gri9uej5wx94o3dOYa3rB1ZJ42o0SroCQx5rj",
-    )
+            "x-api-key: ou9Gri9uej5wx94o3dOYa3rB1ZJ42o0SroCQx5rj")
     @GET("v1/user/stats/{userNum}/{seasonId}")
     fun getUserStats(
             @Path ("seasonId") seasonId: String,
             @Path ("userNum") userNum: String
-    )
+    ): Call<stats>
+
 }

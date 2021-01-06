@@ -3,7 +3,7 @@ package com.sg.sgrr.Retrofit
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-data class Satus(
+data class stats(
         @SerializedName("code") @Expose val code: Int,
         @SerializedName("message") @Expose val message: String,
         @SerializedName("userStats") @Expose val user: List<userStats>)
