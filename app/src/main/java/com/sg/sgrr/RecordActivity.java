@@ -2,10 +2,14 @@ package com.sg.sgrr;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.sg.sgrr.fragment.duo_fragment;
+import com.sg.sgrr.fragment.normal_fragemnt;
+import com.sg.sgrr.fragment.rank_fragment;
+import com.sg.sgrr.fragment.solo_fragment;
+import com.sg.sgrr.fragment.squad_fragment;
 
 public class RecordActivity extends AppCompatActivity {
 
@@ -32,6 +36,20 @@ public class RecordActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 getFragmentManager().beginTransaction().replace(R.id.Record, new squad_fragment()).commit();
+            }
+        });
+
+        findViewById(R.id.Rankgame).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getFragmentManager().beginTransaction().replace(R.id.Summary, new rank_fragment()).commit();
+            }
+        });
+
+        findViewById(R.id.Normalgame).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getFragmentManager().beginTransaction().replace(R.id.Summary, new normal_fragemnt()).commit();
             }
         });
     }

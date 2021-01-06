@@ -3,14 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0027FF"
-    tools:context=".fragment.squad_fragment">
+    android:background="#005EFF"
+    tools:context=".fragment.normal_fragemnt">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Squad Fragment" />
+        android:text="@string/hello_blank_fragment" />
 
 </FrameLayout>
