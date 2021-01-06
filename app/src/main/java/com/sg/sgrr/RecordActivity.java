@@ -18,9 +18,10 @@ public class RecordActivity extends AppCompatActivity {
         Button duo = (Button) findViewById(R.id.Duo);
         Button squad = (Button) findViewById(R.id.Squad);
 
-        solo.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.Solo).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                System.out.println("하이루");
                 Toast.makeText(getApplicationContext(), "솔로", Toast.LENGTH_SHORT).show();
                 //getFragmentManager().beginTransaction().replace(R.id.Record, new solo_fragment()).commit();
             }
