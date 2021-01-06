@@ -14,32 +14,24 @@ public class RecordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.record_result_activity);
 
-        Button solo = (Button) findViewById(R.id.Solo);
-        Button duo = (Button) findViewById(R.id.Duo);
-        Button squad = (Button) findViewById(R.id.Squad);
-
         findViewById(R.id.Solo).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                System.out.println("하이루");
-                Toast.makeText(getApplicationContext(), "솔로", Toast.LENGTH_SHORT).show();
-                //getFragmentManager().beginTransaction().replace(R.id.Record, new solo_fragment()).commit();
+                getFragmentManager().beginTransaction().replace(R.id.Record, new solo_fragment()).commit();
             }
         });
 
-        duo.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.Duo).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "듀오", Toast.LENGTH_SHORT).show();
-                //getFragmentManager().beginTransaction().replace(R.id.Record, new duo_fragment()).commit();
+                getFragmentManager().beginTransaction().replace(R.id.Record, new duo_fragment()).commit();
             }
         });
 
-        squad.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.Squad).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "스쿼드", Toast.LENGTH_SHORT).show();
-                //getFragmentManager().beginTransaction().replace(R.id.Record, new squad_fragment()).commit();
+                getFragmentManager().beginTransaction().replace(R.id.Record, new squad_fragment()).commit();
             }
         });
     }
