@@ -13,5 +13,6 @@ class MainActivity : AppCompatActivity() {
 
         // 안드로이드 스튜디오 테스트
 
+        // 브랜치 테스트
     }
 }
