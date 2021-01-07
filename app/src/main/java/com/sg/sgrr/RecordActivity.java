@@ -42,14 +42,14 @@ public class RecordActivity extends AppCompatActivity {
         findViewById(R.id.Rankgame).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getFragmentManager().beginTransaction().replace(R.id.Summary, new rank_fragment()).commit();
+                getFragmentManager().beginTransaction().replace(R.id.layout_summary, new rank_fragment()).commit();
             }
         });
 
         findViewById(R.id.Normalgame).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getFragmentManager().beginTransaction().replace(R.id.Summary, new normal_fragemnt()).commit();
+                getFragmentManager().beginTransaction().replace(R.id.layout_summary, new normal_fragemnt()).commit();
             }
         });
     }
