@@ -17,40 +17,40 @@ public class RecordActivity extends AppCompatActivity {
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.record_result_activity);
-
-        findViewById(R.id.Solo).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getFragmentManager().beginTransaction().replace(R.id.Record, new solo_fragment()).commit();
-            }
-        });
-
-        findViewById(R.id.Duo).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getFragmentManager().beginTransaction().replace(R.id.Record, new duo_fragment()).commit();
-            }
-        });
-
-        findViewById(R.id.Squad).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getFragmentManager().beginTransaction().replace(R.id.Record, new squad_fragment()).commit();
-            }
-        });
-
-        findViewById(R.id.Rankgame).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getFragmentManager().beginTransaction().replace(R.id.layout_summary, new rank_fragment()).commit();
-            }
-        });
-
-        findViewById(R.id.Normalgame).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getFragmentManager().beginTransaction().replace(R.id.layout_summary, new normal_fragemnt()).commit();
-            }
-        });
+//
+//        findViewById(R.id.Solo).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                getFragmentManager().beginTransaction().replace(R.id.Record, new solo_fragment()).commit();
+//            }
+//        });
+//
+//        findViewById(R.id.Duo).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                getFragmentManager().beginTransaction().replace(R.id.Record, new duo_fragment()).commit();
+//            }
+//        });
+//
+//        findViewById(R.id.Squad).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                getFragmentManager().beginTransaction().replace(R.id.Record, new squad_fragment()).commit();
+//            }
+//        });
+//
+//        findViewById(R.id.Rankgame).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                getFragmentManager().beginTransaction().replace(R.id.layout_summary, new rank_fragment()).commit();
+//            }
+//        });
+//
+//        findViewById(R.id.Normalgame).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                getFragmentManager().beginTransaction().replace(R.id.layout_summary, new normal_fragemnt()).commit();
+//            }
+//        });
     }
 }
