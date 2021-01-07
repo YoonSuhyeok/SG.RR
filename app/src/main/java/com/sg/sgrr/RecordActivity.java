@@ -18,7 +18,7 @@ public class RecordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.record_result_activity);
 
-        findViewById(R.id.Solo).setOnClickListener(new View.OnClickListener() {
+        /*findViewById(R.id.Solo).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 getFragmentManager().beginTransaction().replace(R.id.Record, new solo_fragment()).commit();
@@ -51,6 +51,6 @@ public class RecordActivity extends AppCompatActivity {
             public void onClick(View view) {
                 getFragmentManager().beginTransaction().replace(R.id.layout_summary, new normal_fragemnt()).commit();
             }
-        });
+        });*/
     }
 }
