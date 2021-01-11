@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_record_fragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_recordLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/record_detailBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/detailbtn" />
+
+        <ImageView
+            android:id="@+id/record_sidebar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/sidebar" />
+
+        <TextView
+            android:id="@+id/record_txt_ranknum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="11dp"
+            android:text="#8"
+            android:textSize="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/record_txt_mode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="솔로랭크"
+            android:textSize="7dp"
+            app:layout_constraintStart_toStartOf="@+id/record_txt_ranknum"
+            app:layout_constraintTop_toBottomOf="@+id/record_txt_ranknum" />
+
+        <TextView
+            android:id="@+id/record_txt_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="5일 전"
+            android:textSize="7dp"
+            app:layout_constraintStart_toStartOf="@+id/record_txt_mode"
+            app:layout_constraintTop_toBottomOf="@+id/record_txt_mode" />
+
+        <ImageView
+            android:id="@+id/record_img_char"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="52dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/record_sidebar"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/p1" />
+
+        <TextView
+            android:id="@+id/record_txt_level"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:text="14"
+            app:layout_constraintBottom_toTopOf="@+id/textView6"
+            app:layout_constraintStart_toEndOf="@+id/record_img_char"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="레벨"
+            android:textSize="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/record_txt_level"
+            app:layout_constraintStart_toStartOf="@+id/record_txt_level"
+            app:layout_constraintTop_toBottomOf="@+id/record_txt_level" />
+
+        <TextView
+            android:id="@+id/record_txt_kda"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2 / 0 / 1"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/record_detailBtn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/record_txt_point"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:text="871"
+            app:layout_constraintBottom_toBottomOf="@+id/record_txt_kda"
+            app:layout_constraintStart_toEndOf="@+id/record_txt_kda"
+            app:layout_constraintTop_toTopOf="@+id/record_txt_kda" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

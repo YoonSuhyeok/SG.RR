@@ -3,14 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FF0000"
-    tools:context=".fragment.rank_fragment">
+    android:background="#E2B993"
+    tools:context=".fragment.total_solo_fragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="@string/hello_blank_fragment" />
+        android:text="total - 솔로" />
 
 </FrameLayout>
