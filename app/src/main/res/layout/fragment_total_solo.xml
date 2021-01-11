@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frag_total_solo"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#E2B993"
+    android:orientation="vertical"
     tools:context=".fragment.total_solo_fragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -13,4 +15,4 @@
         android:layout_gravity="center"
         android:text="total - 솔로" />
 
-</FrameLayout>
+</LinearLayout>

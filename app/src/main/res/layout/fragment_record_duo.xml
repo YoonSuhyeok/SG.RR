@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frag_record_duo"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#69BAE8"
+    android:orientation="vertical"
     tools:context=".fragment.record_duo_fragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -13,4 +15,4 @@
         android:layout_gravity="center"
         android:text="record - 듀오" />
 
-</FrameLayout>
+</LinearLayout>

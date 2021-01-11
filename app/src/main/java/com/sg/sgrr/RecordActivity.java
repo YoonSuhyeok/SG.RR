@@ -1,10 +1,16 @@
 package com.sg.sgrr;
 
+import android.animation.LayoutTransition;
+import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 
 import com.sg.sgrr.fragment.record_all_fragment;
 import com.sg.sgrr.fragment.record_duo_fragment;
@@ -23,10 +29,16 @@ public class RecordActivity extends AppCompatActivity {
 
     토스트 테스트*/
 
+    LayoutInflater inflater;
+    LinearLayout linearLayout;
+
     @Override
     protected void onCreate( Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.record_result_activity);
+
+        inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         // Total 부분 버튼 동작
         // total - 전체

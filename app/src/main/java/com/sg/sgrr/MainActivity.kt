@@ -7,9 +7,9 @@ import android.os.Bundle
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.record_result_activity)
 
-        // startActivity(Intent(this, RecordActivity::class.java))
+        startActivity(Intent(this, RecordActivity::class.java))
     }
 
 }

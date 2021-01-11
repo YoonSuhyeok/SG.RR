@@ -9,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_topBar"
         android:layout_width="match_parent"
-        android:layout_height="43dp"
+        android:layout_height="23dp"
         android:background="#F7F7F7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -230,7 +230,6 @@
             android:id="@+id/summary_txt_soloRecord"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
             android:text="3승 8패"
             android:textSize="7dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -660,8 +659,8 @@
         <LinearLayout
             android:id="@+id/layout_record"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical" />
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
