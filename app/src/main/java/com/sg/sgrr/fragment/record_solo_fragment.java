@@ -15,8 +15,10 @@ public class record_solo_fragment extends Fragment {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_record_solo, container, false);
 
         LinearLayout layout = rootView.findViewById(R.id.frag_record_solo);
-        View newView = inflater.inflate(R.layout.record_result_fragment, layout, false);
-        layout.addView(newView);
+        for(int i = 0; i < 1; i++) {
+            //View newView = inflater.inflate(R.layout.record_result_fragment, layout, false);
+            layout.addView(inflater.inflate(R.layout.record_result_fragment, layout, false));
+        }
 
         return rootView;
     }

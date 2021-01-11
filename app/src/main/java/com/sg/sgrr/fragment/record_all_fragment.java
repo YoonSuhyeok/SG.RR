@@ -16,8 +16,10 @@ public class record_all_fragment extends Fragment {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_record_all, container, false);
 
         LinearLayout layout = rootView.findViewById(R.id.frag_record_all);
-        View newView = inflater.inflate(R.layout.record_result_fragment, layout, false);
-        layout.addView(newView);
+        for(int i = 0; i < 6; i++) {
+            //View newView = inflater.inflate(R.layout.record_result_fragment, layout, false);
+            layout.addView(inflater.inflate(R.layout.record_result_fragment, layout, false));
+        }
 
         return rootView;
     }

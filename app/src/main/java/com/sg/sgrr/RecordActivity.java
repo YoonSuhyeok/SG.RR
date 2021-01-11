@@ -1,25 +1,19 @@
 package com.sg.sgrr;
 
-import android.animation.LayoutTransition;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
 
 import com.sg.sgrr.fragment.record_all_fragment;
 import com.sg.sgrr.fragment.record_duo_fragment;
 import com.sg.sgrr.fragment.record_solo_fragment;
 import com.sg.sgrr.fragment.record_squad_fragment;
-import com.sg.sgrr.fragment.total_all_fragment;
-import com.sg.sgrr.fragment.total_duo_fragment;
-import com.sg.sgrr.fragment.total_solo_fragment;
-import com.sg.sgrr.fragment.total_squad_fragment;
+import com.sg.sgrr.fragment.total_summary_fragment;
 
 public class RecordActivity extends AppCompatActivity {
 
@@ -46,7 +40,7 @@ public class RecordActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // total - summary 변경
-                getFragmentManager().beginTransaction().replace(R.id.total_summary, new total_all_fragment()).commit();
+                getFragmentManager().beginTransaction().replace(R.id.total_summary, new total_summary_fragment()).commit();
             }
         });
 
@@ -55,7 +49,7 @@ public class RecordActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // total - summary 변경
-                getFragmentManager().beginTransaction().replace(R.id.total_summary, new total_solo_fragment()).commit();
+                getFragmentManager().beginTransaction().replace(R.id.total_summary, new total_summary_fragment()).commit();
             }
         });
 
@@ -64,7 +58,7 @@ public class RecordActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // total - summary 변경
-                getFragmentManager().beginTransaction().replace(R.id.total_summary, new total_duo_fragment()).commit();
+                getFragmentManager().beginTransaction().replace(R.id.total_summary, new total_summary_fragment()).commit();
             }
         });
 
@@ -73,7 +67,7 @@ public class RecordActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // total - summary 변경
-                getFragmentManager().beginTransaction().replace(R.id.total_summary, new total_squad_fragment()).commit();
+                getFragmentManager().beginTransaction().replace(R.id.total_summary, new total_summary_fragment()).commit();
             }
         });
 
