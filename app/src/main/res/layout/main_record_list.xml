@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ABC57E">
+
+    <ImageView
+        android:id="@+id/MainChar"
+        android:layout_width="66dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="6dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/UserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:text="마우스조경"
+        android:textColor="#000000"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/MainChar"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/rank"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:text="데미안 V | 39LP"
+        android:textColor="#000000"
+        android:textSize="7dp"
+        app:layout_constraintStart_toStartOf="@+id/UserName"
+        app:layout_constraintTop_toBottomOf="@+id/UserName" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="상위 "
+        android:textColor="@color/main_black"
+        android:textSize="8dp"
+        app:layout_constraintStart_toStartOf="@+id/rank"
+        app:layout_constraintTop_toBottomOf="@+id/rank" />
+
+    <TextView
+        android:id="@+id/ranknumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="111,111위"
+        android:textColor="@color/main_blue"
+        android:textSize="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView7"
+        app:layout_constraintStart_toEndOf="@+id/textView7" />
+
+    <TextView
+        android:id="@+id/ranknumber2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="(상위 1%)"
+        android:textColor="@color/main_black"
+        android:textSize="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ranknumber"
+        app:layout_constraintStart_toEndOf="@+id/ranknumber" />
+
+
+    <ImageView
+        android:id="@+id/most1"
+        android:layout_width="27dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="125dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toEndOf="@+id/MainChar"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/most2"
+        android:layout_width="27dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="30dp"
+        app:layout_constraintStart_toEndOf="@+id/most1"
+        app:layout_constraintTop_toTopOf="@+id/most1"
+        tools:srcCompat="@tools:sample/avatars" />
+
+
+    <ImageView
+        android:id="@+id/most3"
+        android:layout_width="27dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="30dp"
+        app:layout_constraintStart_toEndOf="@+id/most2"
+        app:layout_constraintTop_toTopOf="@+id/most2"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/most1Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:text="50%"
+        android:textColor="#369FFF"
+        android:textSize="11dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/most1"
+        app:layout_constraintStart_toStartOf="@+id/most1"
+        app:layout_constraintTop_toBottomOf="@+id/most1" />
+
+    <TextView
+        android:id="@+id/most2Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:text="50%"
+        android:textColor="#37C177"
+        android:textSize="11dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/most2"
+        app:layout_constraintStart_toStartOf="@+id/most2"
+        app:layout_constraintTop_toBottomOf="@+id/most2" />
+
+    <TextView
+        android:id="@+id/most3Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:text="50%"
+        android:textColor="#7C7C7C"
+        android:textSize="11dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/most3"
+        app:layout_constraintStart_toStartOf="@+id/most3"
+        app:layout_constraintTop_toBottomOf="@+id/most3" />
+
+    <ImageButton
+        android:id="@+id/ExitButton"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="19dp"
+        android:background="@drawable/ic_xcross"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

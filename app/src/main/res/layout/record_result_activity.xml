@@ -141,6 +141,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layout_profile">
 
@@ -190,75 +191,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.11"
             app:srcCompat="@drawable/ic_solo" />
-
-        <TextView
-            android:id="@+id/summary_txt_soloRank"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="데미안 5 - 37LP"
-            android:textSize="7dp"
-            app:layout_constraintEnd_toEndOf="@+id/imageView"
-            app:layout_constraintStart_toStartOf="@+id/imageView"
-            app:layout_constraintTop_toBottomOf="@+id/summary_txt_soloMMR" />
-
-        <TextView
-            android:id="@+id/summary_txt_duoRank"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="브론즈 4 - 37LP"
-            android:textSize="7dp"
-            app:layout_constraintBottom_toBottomOf="@+id/summary_txt_soloRank"
-            app:layout_constraintEnd_toEndOf="@+id/imageView3"
-            app:layout_constraintStart_toStartOf="@+id/imageView3"
-            app:layout_constraintTop_toTopOf="@+id/summary_txt_soloRank"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <TextView
-            android:id="@+id/summary_txt_squadRank"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="브론즈 4 - 37LP"
-            android:textSize="7dp"
-            app:layout_constraintBottom_toBottomOf="@+id/summary_txt_duoRank"
-            app:layout_constraintEnd_toEndOf="@+id/imageView5"
-            app:layout_constraintStart_toStartOf="@+id/imageView5"
-            app:layout_constraintTop_toTopOf="@+id/summary_txt_duoRank"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <TextView
-            android:id="@+id/summary_txt_soloRecord"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:text="3승 8패"
-            android:textSize="7dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/summary_txt_soloRank"
-            app:layout_constraintStart_toStartOf="@+id/summary_txt_soloRank"
-            app:layout_constraintTop_toBottomOf="@+id/summary_txt_soloRank" />
-
-        <TextView
-            android:id="@+id/summary_txt_duoRecord"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="3승 8패"
-            android:textSize="7dp"
-            app:layout_constraintBottom_toBottomOf="@+id/summary_txt_soloRecord"
-            app:layout_constraintEnd_toEndOf="@+id/summary_txt_duoRank"
-            app:layout_constraintStart_toStartOf="@+id/summary_txt_duoRank"
-            app:layout_constraintTop_toTopOf="@+id/summary_txt_soloRecord" />
-
-        <TextView
-            android:id="@+id/summary_txt_squadRecord"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="3승 8패"
-            android:textSize="7dp"
-            app:layout_constraintBottom_toBottomOf="@+id/summary_txt_duoRecord"
-            app:layout_constraintEnd_toEndOf="@+id/summary_txt_squadRank"
-            app:layout_constraintStart_toStartOf="@+id/summary_txt_squadRank"
-            app:layout_constraintTop_toBottomOf="@+id/summary_txt_duoRank" />
 
         <ImageView
             android:id="@+id/imageView5"
