@@ -7,12 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import com.sg.sgrr.R
 
-class squad_fragment : Fragment() {
+class total_squad_fragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_squad_fragment, container, false)
+        return inflater.inflate(R.layout.fragment_total_squad, container, false)
     }
 }

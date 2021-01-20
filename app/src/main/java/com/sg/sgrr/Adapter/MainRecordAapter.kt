@@ -56,4 +56,5 @@ class MainRecordAapter(private val MainRecordList: ArrayList<MainRecord>): Recyc
         var most3Text    : TextView  = itemView.findViewById(R.id.most3Text)
     }
 
+
 }

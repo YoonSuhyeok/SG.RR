@@ -22,7 +22,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.record_result_activity)
 
         //Retrofits().fetchUserNum("마우스조경")
 
@@ -64,5 +64,6 @@ class MainActivity : AppCompatActivity() {
             })
         }
         // startActivity(Intent(this, RecordActivity::class.java))
+
     }
 }
