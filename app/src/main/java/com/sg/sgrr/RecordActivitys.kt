@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.sg.sgrr.Retrofit.BsAPI
 import com.sg.sgrr.Retrofit.characterStats
 import com.sg.sgrr.Retrofit.stats
+import kotlinx.android.synthetic.main.record_result_activity.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -28,7 +29,7 @@ class RecordActivitys: AppCompatActivity() {
 
         val intent = intent
         val userNumber = intent.getStringExtra("UserNumber")
-        findViewById<TextView>(R.id.UserName).text = intent.getStringExtra("UserNickname")
+        profile_name.text = intent.getStringExtra("UserNickname")
         if (userNumber != null) {
             client.getUserStats(userNumber, "1").enqueue(object : Callback<stats> {
                 override fun onResponse(call: Call<stats>, response: Response<stats>) {
@@ -48,7 +49,8 @@ class RecordActivitys: AppCompatActivity() {
 
     fun uiSomething(){
         // 1. 모스트 캐릭터 매치
-        calc_mostChar()
+        val mostChar = calc_mostChar()
+
         // 2. 랭크 계산
         calc_Rank()
     }
@@ -213,9 +215,9 @@ class RecordActivitys: AppCompatActivity() {
             }
         }
 
-        findViewById<TextView>(R.id.summary_txt_soloMMR).setText(soloMMR)
-        findViewById<TextView>(R.id.summary_txt_duoMMR).setText(duoMMR)
-        findViewById<TextView>(R.id.summary_txt_squadMMR).setText(squadMMR)
-
+        summary_txt_soloMMR.setText(soloMMR)
+        summary_txt_duoMMR.setText(duoMMR)
+        summary_txt_squadMMR.setText(squadMMR)
+        // 각 이미지 설정해줘야함
     }
 }
