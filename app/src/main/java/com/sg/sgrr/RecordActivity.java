@@ -1,57 +1,99 @@
 package com.sg.sgrr;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.sg.sgrr.fragment.duo_fragment;
-import com.sg.sgrr.fragment.normal_fragemnt;
-import com.sg.sgrr.fragment.rank_fragment;
-import com.sg.sgrr.fragment.solo_fragment;
-import com.sg.sgrr.fragment.squad_fragment;
+import com.sg.sgrr.fragment.record_all_fragment;
+import com.sg.sgrr.fragment.record_duo_fragment;
+import com.sg.sgrr.fragment.record_solo_fragment;
+import com.sg.sgrr.fragment.record_squad_fragment;
+import com.sg.sgrr.fragment.total_summary_fragment;
 
 public class RecordActivity extends AppCompatActivity {
 
+    /*토스트 테스트
+
+    Toast.makeText(getApplicationContext(), "total - 전체", Toast.LENGTH_SHORT).show();
+
+    토스트 테스트*/
+
+    LayoutInflater inflater;
+    LinearLayout linearLayout;
+
     @Override
     protected void onCreate( Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.record_result_activity);
 
-
         /*findViewById(R.id.Solo).setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
-                getFragmentManager().beginTransaction().replace(R.id.Record, new solo_fragment()).commit();
+                // total - summary 변경
+                getFragmentManager().beginTransaction().replace(R.id.total_summary, new total_summary_fragment()).commit();
             }
         });
 
-        findViewById(R.id.Duo).setOnClickListener(new View.OnClickListener() {
+        // total - 듀오
+        findViewById(R.id.total_btn_duo).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getFragmentManager().beginTransaction().replace(R.id.Record, new duo_fragment()).commit();
+                // total - summary 변경
+                getFragmentManager().beginTransaction().replace(R.id.total_summary, new total_summary_fragment()).commit();
             }
         });
 
-        findViewById(R.id.Squad).setOnClickListener(new View.OnClickListener() {
+        // total - 스쿼드
+        findViewById(R.id.total_btn_squad).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getFragmentManager().beginTransaction().replace(R.id.Record, new squad_fragment()).commit();
+                // total - summary 변경
+                getFragmentManager().beginTransaction().replace(R.id.total_summary, new total_summary_fragment()).commit();
             }
         });
 
-        findViewById(R.id.Rankgame).setOnClickListener(new View.OnClickListener() {
+        // Record 부분 버튼 동작
+        // record - 전체
+        findViewById(R.id.record_btn_all).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getFragmentManager().beginTransaction().replace(R.id.layout_summary, new rank_fragment()).commit();
+                // record - layout_record_slide 변경
+                getFragmentManager().beginTransaction().replace(R.id.layout_record, new record_all_fragment()).commit();
             }
         });
 
-        findViewById(R.id.Normalgame).setOnClickListener(new View.OnClickListener() {
+        // record - 솔로
+        findViewById(R.id.record_btn_solo).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getFragmentManager().beginTransaction().replace(R.id.layout_summary, new normal_fragemnt()).commit();
+                // record - layout_record_slide 변경
+                getFragmentManager().beginTransaction().replace(R.id.layout_record, new record_solo_fragment()).commit();
             }
-        });*/
+        });
+
+        // record - 듀오
+        findViewById(R.id.record_btn_duo).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // record - layout_record_slide 변경
+                getFragmentManager().beginTransaction().replace(R.id.layout_record, new record_duo_fragment()).commit();
+            }
+        });
+
+        // record - 스쿼드
+        findViewById(R.id.record_btn_squad).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // record - layout_record_slide 변경
+                getFragmentManager().beginTransaction().replace(R.id.layout_record, new record_squad_fragment()).commit();
+            }
+        });
     }
 }
