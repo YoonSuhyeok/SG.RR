@@ -32,20 +32,8 @@ public class RecordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.record_result_activity);
 
-        inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        /*findViewById(R.id.Solo).setOnClickListener(new View.OnClickListener() {
 
-        // Total 부분 버튼 동작
-        // total - 전체
-        findViewById(R.id.total_btn_all).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // total - summary 변경
-                getFragmentManager().beginTransaction().replace(R.id.total_summary, new total_summary_fragment()).commit();
-            }
-        });
-
-        // total - 솔로
-        findViewById(R.id.total_btn_solo).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // total - summary 변경

@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName
 data class stats(
         @SerializedName("code") @Expose val code: Int,
         @SerializedName("message") @Expose val message: String,
-        @SerializedName("userStats") @Expose val user: List<userStats>)
+        @SerializedName("userStats") @Expose val userStats: List<userStats>)
 
 data class userStats(
         @SerializedName("seasonId") @Expose val seasonId: Int,
@@ -19,23 +19,23 @@ data class userStats(
         @SerializedName("rankSize") @Expose val rankSize: Int,
         @SerializedName("totalGames") @Expose val totalGames: Int,
         @SerializedName("totalWins") @Expose val totalWins: Int,
-        @SerializedName("rankPercent") @Expose val rankPercent: Int,
-        @SerializedName("averageRank") @Expose val averageRank: Int,
-        @SerializedName("averageKills") @Expose val averageKills: Int,
-        @SerializedName("averageAssistants") @Expose val averageAssistants: Int,
-        @SerializedName("averageHunts") @Expose val averageHunts: Int,
-        @SerializedName("top1") @Expose val top1: Int,
-        @SerializedName("top2") @Expose val top2: Int,
-        @SerializedName("top3") @Expose val top3: Int,
-        @SerializedName("top5") @Expose val top5: Int,
-        @SerializedName("top7") @Expose val top7: Int,
+        @SerializedName("rankPercent") @Expose val rankPercent: Double,
+        @SerializedName("averageRank") @Expose val averageRank: Double,
+        @SerializedName("averageKills") @Expose val averageKills: Double,
+        @SerializedName("averageAssistants") @Expose val averageAssistants: Double,
+        @SerializedName("averageHunts") @Expose val averageHunts: Double,
+        @SerializedName("top1") @Expose val top1: Double,
+        @SerializedName("top2") @Expose val top2: Double,
+        @SerializedName("top3") @Expose val top3: Double,
+        @SerializedName("top5") @Expose val top5: Double,
+        @SerializedName("top7") @Expose val top7: Double,
         @SerializedName("characterStats") @Expose val characterStats: List<characterStats>)
 
 data class characterStats(
-        @SerializedName("characterCode") @Expose val characterCode: Int,
-        @SerializedName("totalGames") @Expose val totalGames: Int,
-        @SerializedName("maxKillings") @Expose val maxKillings: Int,
-        @SerializedName("top3") @Expose val top3: Int,
-        @SerializedName("top3Rate") @Expose val top3Rate: Int,
-        @SerializedName("averageRank") @Expose val averageRank: Int,
-        @SerializedName("wins") @Expose val wins: Int)
+        @SerializedName("characterCode") @Expose var characterCode: Int,
+        @SerializedName("totalGames") @Expose var totalGames: Int,
+        @SerializedName("maxKillings") @Expose var maxKillings: Int,
+        @SerializedName("top3") @Expose var top3: Int,
+        @SerializedName("top3Rate") @Expose var top3Rate: Int,
+        @SerializedName("averageRank") @Expose var averageRank: Int,
+        @SerializedName("wins") @Expose var wins: Int)

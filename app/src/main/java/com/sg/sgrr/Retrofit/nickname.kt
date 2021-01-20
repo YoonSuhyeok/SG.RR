@@ -3,7 +3,7 @@ package com.sg.sgrr
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-data class ResultBsAPI(
+data class nickname(
     @SerializedName("code") @Expose val code: Int,
     @SerializedName("message") @Expose val message: String,
     @SerializedName("user") @Expose val user: user)

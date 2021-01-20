@@ -50,10 +50,14 @@
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="20dp"
         android:background="@drawable/ic_search_bar_main"
+        android:hint="소환사 이름을 적어주세요"
+        android:paddingStart="20dp"
+        android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nickname" />
 
@@ -61,14 +65,23 @@
         android:id="@+id/search_btn_main"
         android:layout_width="80dp"
         android:layout_height="30dp"
-        android:layout_marginLeft="8dp"
+        android:layout_margin="5dp"
         android:background="@drawable/ic_search_btn_main"
         android:text="검색"
         app:layout_constraintBottom_toBottomOf="@+id/editText"
-        app:layout_constraintStart_toStartOf="@+id/editText"
+        app:layout_constraintEnd_toEndOf="@+id/editText"
         app:layout_constraintTop_toTopOf="@+id/editText" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/mainRecycler"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText" />
+
+    <!-- <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="380dp"
         android:layout_height="235dp"
@@ -77,7 +90,165 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText">
 
-    </androidx.recyclerview.widget.RecyclerView>
+    </androidx.recyclerview.widget.RecyclerView> -->
+
+    <!--
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="#E0F3CD"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText">
+
+        <ImageView
+            android:id="@+id/MainChar"
+            android:layout_width="66dp"
+            android:layout_height="63dp"
+            android:layout_marginStart="7dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/char17_big" />
+
+        <TextView
+            android:id="@+id/UserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="15dp"
+            android:text="빈 닉네임"
+            android:textColor="#000000"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/MainChar"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/rank"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="데미안 V | 39LP"
+            android:textColor="#000000"
+            android:textSize="7dp"
+            app:layout_constraintStart_toStartOf="@+id/UserName"
+            app:layout_constraintTop_toBottomOf="@+id/UserName" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="상위 "
+            android:textColor="@color/main_black"
+            android:textSize="8dp"
+            app:layout_constraintStart_toStartOf="@+id/rank"
+            app:layout_constraintTop_toBottomOf="@+id/rank" />
+
+        <TextView
+            android:id="@+id/ranknumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="111,111"
+            android:textColor="@color/main_blue"
+            android:textSize="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView7"
+            app:layout_constraintStart_toEndOf="@+id/textView7" />
+
+        <TextView
+            android:id="@+id/ranknumber2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="위 (상위 1%)"
+            android:textColor="@color/main_black"
+            android:textSize="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/ranknumber"
+            app:layout_constraintStart_toEndOf="@+id/ranknumber" />
+
+
+        <ImageView
+            android:id="@+id/most1"
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            android:layout_marginStart="125dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toEndOf="@+id/MainChar"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/char17" />
+
+        <ImageView
+            android:id="@+id/most2"
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            android:layout_marginStart="30dp"
+            app:layout_constraintStart_toEndOf="@+id/most1"
+            app:layout_constraintTop_toTopOf="@+id/most1"
+            app:srcCompat="@drawable/char18" />
+
+        <ImageView
+            android:id="@+id/most3"
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            android:layout_marginStart="30dp"
+            app:layout_constraintStart_toEndOf="@+id/most2"
+            app:layout_constraintTop_toTopOf="@+id/most2"
+            app:srcCompat="@drawable/char18" />
+
+        <TextView
+            android:id="@+id/most1Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="11dp"
+            android:text="평균 3위"
+            android:textColor="#369FFF"
+            android:textSize="11dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/most1"
+            app:layout_constraintStart_toStartOf="@+id/most1"
+            app:layout_constraintTop_toBottomOf="@+id/most1" />
+
+        <TextView
+            android:id="@+id/most2Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="11dp"
+            android:text="평균 5위"
+            android:textColor="#37C177"
+            android:textSize="11dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/most2"
+            app:layout_constraintStart_toStartOf="@+id/most2"
+            app:layout_constraintTop_toBottomOf="@+id/most2" />
+
+        <TextView
+            android:id="@+id/most3Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="11dp"
+            android:text="평균 2위"
+            android:textColor="#7C7C7C"
+            android:textSize="11dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/most3"
+            app:layout_constraintStart_toStartOf="@+id/most3"
+            app:layout_constraintTop_toBottomOf="@+id/most3" />
+
+        <ImageButton
+            android:id="@+id/ExitButton"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_marginTop="21dp"
+            android:layout_marginEnd="19dp"
+            android:background="@drawable/ic_xcross"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
@@ -140,5 +311,5 @@
             app:layout_constraintStart_toStartOf="@+id/imageView5"
             app:layout_constraintTop_toTopOf="@+id/imageView5" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
+    -->
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,6 @@
 package com.sg.sgrr.Retrofit
 
-import com.sg.sgrr.ResultBsAPI
+import com.sg.sgrr.nickname
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -35,13 +35,12 @@ interface BsAPI {
     ) // 추가적인 클래스 필요
 
     @Headers(
-        "Accept: application/json",
-        "x-api-key: ou9Gri9uej5wx94o3dOYa3rB1ZJ42o0SroCQx5rj"
+        "Accept: application/json"
     )
     @GET("v1/user/nickname")
     fun getUserNum(
         @Query("query") query: String
-    ): Call<ResultBsAPI>
+    ): Call<nickname>
 
     @Headers(
             "Accept: application/json",
@@ -54,12 +53,11 @@ interface BsAPI {
     ): Call<games>
 
     @Headers(
-            "Accept: application/json",
-            "x-api-key: ou9Gri9uej5wx94o3dOYa3rB1ZJ42o0SroCQx5rj")
+            "Accept: application/json")
     @GET("v1/user/stats/{userNum}/{seasonId}")
     fun getUserStats(
-            @Path ("seasonId") seasonId: String,
-            @Path ("userNum") userNum: String
+            @Path ("userNum") userNum: String,
+            @Path ("seasonId") seasonId: String
     ): Call<stats>
 
 }
