@@ -22,7 +22,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.record_result_activity)
+        setContentView(R.layout.activity_main)
 
         //Retrofits().fetchUserNum("마우스조경")
 

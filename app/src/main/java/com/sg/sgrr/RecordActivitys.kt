@@ -1,13 +1,11 @@
 package com.sg.sgrr
 
 import android.os.Bundle
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.sg.sgrr.Retrofit.BsAPI
 import com.sg.sgrr.Retrofit.characterStats
 import com.sg.sgrr.Retrofit.stats
-import kotlinx.android.synthetic.main.record_result_activity.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -29,7 +27,7 @@ class RecordActivitys: AppCompatActivity() {
 
         val intent = intent
         val userNumber = intent.getStringExtra("UserNumber")
-        profile_name.text = intent.getStringExtra("UserNickname")
+        // profile_name.text = intent.getStringExtra("UserNickname")
         if (userNumber != null) {
             client.getUserStats(userNumber, "1").enqueue(object : Callback<stats> {
                 override fun onResponse(call: Call<stats>, response: Response<stats>) {
@@ -148,7 +146,9 @@ class RecordActivitys: AppCompatActivity() {
         }
 
         findViewById<TextView>(R.id.profile_rank).text = "상위 ${maxRank}위 (상위 ${Math.round(maxRank / maxRankSize * 100)*10/10.0}%)"
+        /*
         findViewById<TextView>(R.id.profile_text).text = when (maxMmr) {
+
             in 0..399 -> {
                 when(maxMmr){
                     in 0..99 -> "아이언 IV"
@@ -214,10 +214,10 @@ class RecordActivitys: AppCompatActivity() {
                 }
             }
         }
-
-        summary_txt_soloMMR.setText(soloMMR)
-        summary_txt_duoMMR.setText(duoMMR)
-        summary_txt_squadMMR.setText(squadMMR)
+*/
+        // summary_txt_soloMMR.setText(soloMMR)
+        //summary_duoTier.setText(duoMMR)
+        //summary_txt_squadMMR.setText(squadMMR)
         // 각 이미지 설정해줘야함
     }
 }
