@@ -13,6 +13,6 @@ class total_duo_fragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_total_duo, container, false)
+        return inflater.inflate(R.layout.fragment_total_summary, container, false)
     }
 }

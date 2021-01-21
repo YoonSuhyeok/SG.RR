@@ -13,6 +13,6 @@ class total_solo_fragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_total_solo, container, false)
+        return inflater.inflate(R.layout.fragment_total_summary, container, false)
     }
 }

@@ -30,7 +30,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/sidebar" />
+            app:srcCompat="@drawable/sidebars" />
 
         <TextView
             android:id="@+id/record_txt_ranknum"
