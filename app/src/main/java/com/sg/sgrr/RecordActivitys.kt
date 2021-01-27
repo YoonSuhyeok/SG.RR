@@ -6,6 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.sg.sgrr.Retrofit.BsAPI
 import com.sg.sgrr.Retrofit.characterStats
 import com.sg.sgrr.Retrofit.stats
+import com.sg.sgrr.fragment.total_summary_fragment
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -15,9 +18,103 @@ import retrofit2.converter.gson.GsonConverterFactory
 class RecordActivitys: AppCompatActivity() {
 
     val stats = ArrayList<stats>()
+    val charImageArray = ArrayList<Int>()
+
+    val charNameArray = ArrayList<String>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.record_result_activity)
+
+        // 캐릭터 이미지(Portrait) Array
+        charImageArray.add(R.drawable.char_1portrait)
+        charImageArray.add(R.drawable.char_2portrait)
+        charImageArray.add(R.drawable.char_3portrait)
+        charImageArray.add(R.drawable.char_4portrait)
+        charImageArray.add(R.drawable.char_5portrait)
+        charImageArray.add(R.drawable.char_6portrait)
+        charImageArray.add(R.drawable.char_7portrait)
+        charImageArray.add(R.drawable.char_8portrait)
+        charImageArray.add(R.drawable.char_9portrait)
+        charImageArray.add(R.drawable.char_10portrait)
+        charImageArray.add(R.drawable.char_11portrait)
+        charImageArray.add(R.drawable.char_12portrait)
+        charImageArray.add(R.drawable.char_13portrait)
+        charImageArray.add(R.drawable.char_14portrait)
+        charImageArray.add(R.drawable.char_15portrait)
+        charImageArray.add(R.drawable.char_16portrait)
+        charImageArray.add(R.drawable.char_17portrait)
+        charImageArray.add(R.drawable.char_18portrait)
+        charImageArray.add(R.drawable.char_19portrait)
+
+        // 캐릭터 이름 Array
+        charNameArray.add("재키")
+        charNameArray.add("아야")
+        charNameArray.add("현우")
+        charNameArray.add("매그너스")
+        charNameArray.add("피오라")
+        charNameArray.add("나딘")
+        charNameArray.add("자히르")
+        charNameArray.add("하트")
+        charNameArray.add("아이솔")
+        charNameArray.add("리 다이린")
+        charNameArray.add("유키")
+        charNameArray.add("혜진")
+        charNameArray.add("쇼우")
+        charNameArray.add("시셀라")
+        charNameArray.add("키아라")
+        charNameArray.add("아드리아나")
+        charNameArray.add("쇼이치")
+        charNameArray.add("실비아")
+        charNameArray.add("엠마")
+        charNameArray.add("레녹스")
+        charNameArray.add("로지")
+
+        // total - solo 버튼 리스너
+        findViewById<TextView>(R.id.total_btn_solo).setOnClickListener {
+
+            val solo_charcode1 = 1
+            val solo_charcode2 = 2
+            val solo_charcode3 = 3
+            // solo newFrag가 null을 return함.
+            val solo_newFrag = supportFragmentManager.findFragmentById(R.id.total_summary) as total_summary_fragment
+
+            solo_newFrag?.changeC1(charImageArray[solo_charcode1-1], charNameArray[solo_charcode1-1], "AVG 1st", "11게임")
+            solo_newFrag?.changeC2(charImageArray[solo_charcode2-1], charNameArray[solo_charcode2-1], "AVG 1st", "11게임")
+            solo_newFrag?.changeC3(charImageArray[solo_charcode3-1], charNameArray[solo_charcode3-1], "AVG 1st", "11게임")
+
+            supportFragmentManager.beginTransaction().replace(R.id.total_summary, solo_newFrag).commit()
+        }
+
+        // total - duo 버튼 리스너
+        findViewById<TextView>(R.id.total_btn_duo).setOnClickListener {
+
+            val charcode1 = 11
+            val charcode2 = 12
+            val charcode3 = 13
+            val duo_newFrag = supportFragmentManager.findFragmentById(R.id.total_summary) as total_summary_fragment
+
+            duo_newFrag.changeC1(charImageArray[charcode1-1], charNameArray[charcode1-1], "AVG 2nd", "22게임")
+            duo_newFrag.changeC2(charImageArray[charcode2-1], charNameArray[charcode2-1], "AVG 2nd", "22게임")
+            duo_newFrag.changeC3(charImageArray[charcode3-1], charNameArray[charcode3-1], "AVG 2nd", "22게임")
+
+            supportFragmentManager.beginTransaction().replace(R.id.total_summary, duo_newFrag).commit()
+        }
+
+        // total - squad 버튼 리스너
+        findViewById<TextView>(R.id.total_btn_squad).setOnClickListener {
+
+            val charcode1 = 17
+            val charcode2 = 18
+            val charcode3 = 19
+            val squad_newFrag = supportFragmentManager.findFragmentById(R.id.total_summary) as total_summary_fragment
+
+            squad_newFrag.changeC1(charImageArray[charcode1-1], charNameArray[charcode1-1], "AVG 3rd", "33게임")
+            squad_newFrag.changeC2(charImageArray[charcode2-1], charNameArray[charcode2-1], "AVG 3rd", "33게임")
+            squad_newFrag.changeC3(charImageArray[charcode3-1], charNameArray[charcode3-1], "AVG 3rd", "33게임")
+
+            supportFragmentManager.beginTransaction().replace(R.id.total_summary, squad_newFrag).commit()
+        }
 
         val Base_URL_BSURL = "https://testbsserver.herokuapp.com"
         val retrofit = Retrofit.Builder().baseUrl(Base_URL_BSURL)

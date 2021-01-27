@@ -311,7 +311,7 @@
         app:layout_constraintTop_toBottomOf="@+id/layout_summary">
 
         <TextView
-            android:id="@+id/textView12"
+            android:id="@+id/total_btn_solo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="60dp"
@@ -322,7 +322,7 @@
             android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/textView11"
+            app:layout_constraintEnd_toStartOf="@+id/total_btn_duo"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
@@ -330,13 +330,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
-            app:layout_constraintEnd_toEndOf="@+id/textView12"
-            app:layout_constraintStart_toStartOf="@+id/textView12"
-            app:layout_constraintTop_toBottomOf="@+id/textView12"
+            app:layout_constraintEnd_toEndOf="@+id/total_btn_solo"
+            app:layout_constraintStart_toStartOf="@+id/total_btn_solo"
+            app:layout_constraintTop_toBottomOf="@+id/total_btn_solo"
             app:srcCompat="@drawable/ic_center_underbar" />
 
         <TextView
-            android:id="@+id/textView11"
+            android:id="@+id/total_btn_duo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/robotoregular"
@@ -353,13 +353,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
-            app:layout_constraintEnd_toEndOf="@+id/textView11"
-            app:layout_constraintStart_toStartOf="@+id/textView11"
-            app:layout_constraintTop_toBottomOf="@+id/textView11"
+            app:layout_constraintEnd_toEndOf="@+id/total_btn_duo"
+            app:layout_constraintStart_toStartOf="@+id/total_btn_duo"
+            app:layout_constraintTop_toBottomOf="@+id/total_btn_duo"
             app:srcCompat="@drawable/ic_center_underbar" />
 
         <TextView
-            android:id="@+id/textView10"
+            android:id="@+id/total_btn_squad"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
@@ -367,7 +367,7 @@
             android:text="스쿼드"
             android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView11"
+            app:layout_constraintStart_toEndOf="@+id/total_btn_duo"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
@@ -375,9 +375,9 @@
             android:layout_width="36dp"
             android:layout_height="3dp"
             android:layout_marginTop="3dp"
-            app:layout_constraintEnd_toEndOf="@+id/textView10"
-            app:layout_constraintStart_toStartOf="@+id/textView10"
-            app:layout_constraintTop_toBottomOf="@+id/textView10"
+            app:layout_constraintEnd_toEndOf="@+id/total_btn_squad"
+            app:layout_constraintStart_toStartOf="@+id/total_btn_squad"
+            app:layout_constraintTop_toBottomOf="@+id/total_btn_squad"
             app:srcCompat="@drawable/ic_center_underbar" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 

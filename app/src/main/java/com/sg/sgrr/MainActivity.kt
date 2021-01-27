@@ -59,11 +59,11 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 override fun onFailure(call: Call<nickname>, t: Throwable) {
-                    TODO("Not yet implemented")
+
                 }
             })
         }
-        // startActivity(Intent(this, RecordActivity::class.java))
+        //startActivity(Intent(this, RecordActivity::class.java))
 
     }
 }
