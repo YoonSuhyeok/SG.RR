@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/frag_total_all"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="#FFFFFF"
     android:orientation="vertical"
     tools:context=".fragment.total_summary_fragment">
@@ -26,17 +26,17 @@
 
         <TextView
             android:id="@+id/total_txt_avRank1"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="50% (3승 3패)"
+            android:text="AVG 123th"
             android:textSize="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/total_txt_cname1"
+            app:layout_constraintStart_toEndOf="@+id/total_img_c1"
             app:layout_constraintTop_toBottomOf="@+id/total_txt_cname1" />
 
         <TextView
             android:id="@+id/total_txt_cname1"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="아드리아나"
             android:textSize="8dp"
@@ -46,19 +46,20 @@
 
         <ImageView
             android:id="@+id/total_img_c1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_marginStart="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/p1" />
+            app:srcCompat="@drawable/char_16portrait" />
 
         <TextView
             android:id="@+id/total_txt_games1"
-            android:layout_width="30dp"
-            android:layout_height="10dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:text="2.21 평점"
+            android:text="123게임"
             android:textSize="8dp"
             app:layout_constraintBottom_toBottomOf="@+id/total_txt_avRank1"
             app:layout_constraintStart_toEndOf="@+id/total_txt_avRank1"
@@ -73,17 +74,17 @@
 
         <TextView
             android:id="@+id/total_txt_avRank2"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="50% (3승 3패)"
+            android:text="AVG 123th"
             android:textSize="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/total_txt_cname2"
+            app:layout_constraintStart_toEndOf="@+id/total_img_c2"
             app:layout_constraintTop_toBottomOf="@+id/total_txt_cname2" />
 
         <TextView
             android:id="@+id/total_txt_cname2"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="실비아"
             android:textSize="8dp"
@@ -93,19 +94,20 @@
 
         <ImageView
             android:id="@+id/total_img_c2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_marginStart="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/p2" />
+            app:srcCompat="@drawable/char_18portrait" />
 
         <TextView
             android:id="@+id/total_txt_games2"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:text="2.21 평점"
+            android:text="123게임"
             android:textSize="8dp"
             app:layout_constraintBottom_toBottomOf="@+id/total_txt_avRank2"
             app:layout_constraintStart_toEndOf="@+id/total_txt_avRank2"
@@ -120,17 +122,17 @@
 
         <TextView
             android:id="@+id/total_txt_avRank3"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="50% (3승 3패)"
+            android:text="AVG 123th"
             android:textSize="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/total_txt_cname3"
+            app:layout_constraintStart_toEndOf="@+id/total_img_c3"
             app:layout_constraintTop_toBottomOf="@+id/total_txt_cname3" />
 
         <TextView
             android:id="@+id/total_txt_cname3"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="키아라"
             android:textSize="8dp"
@@ -140,19 +142,20 @@
 
         <ImageView
             android:id="@+id/total_img_c3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_marginStart="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/p3" />
+            app:srcCompat="@drawable/char_15portrait" />
 
         <TextView
             android:id="@+id/total_txt_games3"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:text="2.21 평점"
+            android:text="123게임"
             android:textSize="8dp"
             app:layout_constraintBottom_toBottomOf="@+id/total_txt_avRank3"
             app:layout_constraintStart_toEndOf="@+id/total_txt_avRank3"

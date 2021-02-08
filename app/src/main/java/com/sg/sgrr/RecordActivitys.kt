@@ -82,8 +82,6 @@ class RecordActivitys: AppCompatActivity() {
             solo_newFrag?.changeC1(charImageArray[solo_charcode1-1], charNameArray[solo_charcode1-1], "AVG 1st", "11게임")
             solo_newFrag?.changeC2(charImageArray[solo_charcode2-1], charNameArray[solo_charcode2-1], "AVG 1st", "11게임")
             solo_newFrag?.changeC3(charImageArray[solo_charcode3-1], charNameArray[solo_charcode3-1], "AVG 1st", "11게임")
-
-            supportFragmentManager.beginTransaction().replace(R.id.total_summary, solo_newFrag).commit()
         }
 
         // total - duo 버튼 리스너
@@ -97,8 +95,6 @@ class RecordActivitys: AppCompatActivity() {
             duo_newFrag.changeC1(charImageArray[charcode1-1], charNameArray[charcode1-1], "AVG 2nd", "22게임")
             duo_newFrag.changeC2(charImageArray[charcode2-1], charNameArray[charcode2-1], "AVG 2nd", "22게임")
             duo_newFrag.changeC3(charImageArray[charcode3-1], charNameArray[charcode3-1], "AVG 2nd", "22게임")
-
-            supportFragmentManager.beginTransaction().replace(R.id.total_summary, duo_newFrag).commit()
         }
 
         // total - squad 버튼 리스너
@@ -112,9 +108,9 @@ class RecordActivitys: AppCompatActivity() {
             squad_newFrag.changeC1(charImageArray[charcode1-1], charNameArray[charcode1-1], "AVG 3rd", "33게임")
             squad_newFrag.changeC2(charImageArray[charcode2-1], charNameArray[charcode2-1], "AVG 3rd", "33게임")
             squad_newFrag.changeC3(charImageArray[charcode3-1], charNameArray[charcode3-1], "AVG 3rd", "33게임")
-
-            supportFragmentManager.beginTransaction().replace(R.id.total_summary, squad_newFrag).commit()
         }
+
+        supportFragmentManager.beginTransaction().replace(R.id.total_summary, total_summary_fragment()).commit()
 
         val Base_URL_BSURL = "https://testbsserver.herokuapp.com"
         val retrofit = Retrofit.Builder().baseUrl(Base_URL_BSURL)
