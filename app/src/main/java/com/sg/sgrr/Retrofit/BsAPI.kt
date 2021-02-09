@@ -43,13 +43,11 @@ interface BsAPI {
     ): Call<nickname>
 
     @Headers(
-            "Accept: application/json",
-            "x-api-key: ou9Gri9uej5wx94o3dOYa3rB1ZJ42o0SroCQx5rj",
+            "Accept: application/json"
     )
     @GET("v1/user/games/{userNum}")
     fun getUserGames(
-        @Path ("userNum") userNum: String,
-        @Query ("next") next: String
+        @Path ("userNum") userNum: String
     ): Call<games>
 
     @Headers(

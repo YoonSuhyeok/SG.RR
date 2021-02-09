@@ -1,14 +1,17 @@
 package com.sg.sgrr
 
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.sg.sgrr.Retrofit.BsAPI
 import com.sg.sgrr.Retrofit.characterStats
 import com.sg.sgrr.Retrofit.stats
 import com.sg.sgrr.fragment.total_summary_fragment
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.sg.sgrr.Adapter.resultRecordAdapter
+import com.sg.sgrr.Retrofit.games
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -28,6 +31,7 @@ class RecordActivitys: AppCompatActivity() {
 
         // 캐릭터 이미지(Portrait) Array
         charImageArray.add(R.drawable.char_1portrait)
+        charImageArray.add(R.drawable.char_1portrait)
         charImageArray.add(R.drawable.char_2portrait)
         charImageArray.add(R.drawable.char_3portrait)
         charImageArray.add(R.drawable.char_4portrait)
@@ -46,26 +50,29 @@ class RecordActivitys: AppCompatActivity() {
         charImageArray.add(R.drawable.char_17portrait)
         charImageArray.add(R.drawable.char_18portrait)
         charImageArray.add(R.drawable.char_19portrait)
+        charImageArray.add(R.drawable.char_19portrait)
+        charImageArray.add(R.drawable.char_19portrait)
 
         // 캐릭터 이름 Array
         charNameArray.add("재키")
+        charNameArray.add("재키")
         charNameArray.add("아야")
-        charNameArray.add("현우")
-        charNameArray.add("매그너스")
         charNameArray.add("피오라")
-        charNameArray.add("나딘")
+        charNameArray.add("매그너스")
         charNameArray.add("자히르")
+        charNameArray.add("나딘")
+        charNameArray.add("현우")
         charNameArray.add("하트")
         charNameArray.add("아이솔")
         charNameArray.add("리 다이린")
         charNameArray.add("유키")
         charNameArray.add("혜진")
         charNameArray.add("쇼우")
-        charNameArray.add("시셀라")
         charNameArray.add("키아라")
+        charNameArray.add("시셀라")
+        charNameArray.add("실비아")
         charNameArray.add("아드리아나")
         charNameArray.add("쇼이치")
-        charNameArray.add("실비아")
         charNameArray.add("엠마")
         charNameArray.add("레녹스")
         charNameArray.add("로지")
@@ -119,18 +126,36 @@ class RecordActivitys: AppCompatActivity() {
         val client = retrofit.create(BsAPI::class.java)
 
         val intent = intent
-        val userNumber = intent.getStringExtra("UserNumber")
-        // profile_name.text = intent.getStringExtra("UserNickname")
-        if (userNumber != null) {
+        val userNumber = intent.getIntExtra("UserNumber", 0).toString()
+        findViewById<TextView>(R.id.profile_name).text = intent.getStringExtra("UserNickname")
+        if (userNumber != "0") {
             client.getUserStats(userNumber, "1").enqueue(object : Callback<stats> {
                 override fun onResponse(call: Call<stats>, response: Response<stats>) {
                     // 비주얼 UI 조작
-                    stats.add(response as stats)
+                    stats.add(response?.body() as stats)
                     uiSomething()
                 }
 
                 override fun onFailure(call: Call<stats>, t: Throwable) {
                     TODO("Not yet implemented")
+                }
+
+            })
+        }
+
+        val recyclerview = findViewById<RecyclerView>(R.id.score)
+        recyclerview.setHasFixedSize(true)
+        recyclerview.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+
+        if (userNumber != null) {
+            client.getUserGames(userNumber).enqueue(object: Callback<games>{
+                override fun onResponse(call: Call<games>, response: Response<games>) {
+                    if(response?.body()?.userGames != null){
+                        recyclerview.adapter = resultRecordAdapter(response.body()!!.userGames, charImageArray, charNameArray)
+                    }
+                }
+
+                override fun onFailure(call: Call<games>, t: Throwable) {
                 }
 
             })
@@ -195,7 +220,7 @@ class RecordActivitys: AppCompatActivity() {
             }
         }
         
-        // findViewById<ImageView>(R.id.profile_image).setImageResource() 이미지 넣으면 해주세요 mostChar이용해서
+        findViewById<ImageView>(R.id.profile_image).setImageResource(charImageArray[mostChar])
         return totalCharacter
     }
 

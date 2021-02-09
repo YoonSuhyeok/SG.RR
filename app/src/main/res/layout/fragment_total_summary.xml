@@ -52,7 +52,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/char_16portrait" />
+            app:srcCompat="@drawable/char_17portrait" />
 
         <TextView
             android:id="@+id/total_txt_games1"
@@ -100,7 +100,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/char_18portrait" />
+            app:srcCompat="@drawable/char_16portrait" />
 
         <TextView
             android:id="@+id/total_txt_games2"
