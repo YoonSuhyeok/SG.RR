@@ -1,6 +1,8 @@
 package com.sg.sgrr
 
+import android.graphics.Color
 import android.os.Bundle
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -8,8 +10,15 @@ import com.sg.sgrr.Retrofit.BsAPI
 import com.sg.sgrr.Retrofit.characterStats
 import com.sg.sgrr.Retrofit.stats
 import com.sg.sgrr.fragment.total_summary_fragment
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.github.mikephil.charting.charts.PieChart
+import com.github.mikephil.charting.data.PieData
+import com.github.mikephil.charting.data.PieDataSet
+import com.github.mikephil.charting.data.PieEntry
+import com.github.mikephil.charting.utils.ColorTemplate
+import com.sg.sgrr.Adapter.resultRecordAdapter
+import com.sg.sgrr.Retrofit.games
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -70,8 +79,8 @@ class RecordActivitys: AppCompatActivity() {
         charImageArray.add(R.drawable.char_17portrait)
         charImageArray.add(R.drawable.char_18portrait)
         charImageArray.add(R.drawable.char_19portrait)
-        //charImageArray.add(R.drawable.char_20portrait)
-        //charImageArray.add(R.drawable.char_21portrait)
+        charImageArray.add(R.drawable.char_19portrait)
+        charImageArray.add(R.drawable.char_19portrait)
 
         // 캐릭터 이름 Array
         charNameArray.add("재키")
@@ -97,45 +106,7 @@ class RecordActivitys: AppCompatActivity() {
         charNameArray.add("로지")
         charNameArray.add("루크")
 
-        // total - solo 버튼 리스너
-        findViewById<TextView>(R.id.total_btn_solo).setOnClickListener {
-
-            val solo_charcode1 = 1
-            val solo_charcode2 = 2
-            val solo_charcode3 = 3
-            // solo newFrag가 null을 return함.
-            val solo_newFrag = supportFragmentManager.findFragmentById(R.id.total_summary) as total_summary_fragment
-
-            solo_newFrag?.changeC1(charImageArray[solo_charcode1-1], charNameArray[solo_charcode1-1], "AVG 1st", "11게임")
-            solo_newFrag?.changeC2(charImageArray[solo_charcode2-1], charNameArray[solo_charcode2-1], "AVG 1st", "11게임")
-            solo_newFrag?.changeC3(charImageArray[solo_charcode3-1], charNameArray[solo_charcode3-1], "AVG 1st", "11게임")
-        }
-
-        // total - duo 버튼 리스너
-        findViewById<TextView>(R.id.total_btn_duo).setOnClickListener {
-
-            val charcode1 = 11
-            val charcode2 = 12
-            val charcode3 = 13
-            val duo_newFrag = supportFragmentManager.findFragmentById(R.id.total_summary) as total_summary_fragment
-
-            duo_newFrag.changeC1(charImageArray[charcode1-1], charNameArray[charcode1-1], "AVG 2nd", "22게임")
-            duo_newFrag.changeC2(charImageArray[charcode2-1], charNameArray[charcode2-1], "AVG 2nd", "22게임")
-            duo_newFrag.changeC3(charImageArray[charcode3-1], charNameArray[charcode3-1], "AVG 2nd", "22게임")
-        }
-
-        // total - squad 버튼 리스너
-        findViewById<TextView>(R.id.total_btn_squad).setOnClickListener {
-
-            val charcode1 = 17
-            val charcode2 = 18
-            val charcode3 = 19
-            val squad_newFrag = supportFragmentManager.findFragmentById(R.id.total_summary) as total_summary_fragment
-
-            squad_newFrag.changeC1(charImageArray[charcode1-1], charNameArray[charcode1-1], "AVG 3rd", "33게임")
-            squad_newFrag.changeC2(charImageArray[charcode2-1], charNameArray[charcode2-1], "AVG 3rd", "33게임")
-            squad_newFrag.changeC3(charImageArray[charcode3-1], charNameArray[charcode3-1], "AVG 3rd", "33게임")
-        }
+        setTotalBtn()
 
         supportFragmentManager.beginTransaction().replace(R.id.total_summary, total_summary_fragment()).commit()
 
@@ -161,6 +132,29 @@ class RecordActivitys: AppCompatActivity() {
             })
         }
 
+        val recyclerview = findViewById<RecyclerView>(R.id.score)
+        recyclerview.setHasFixedSize(true)
+        recyclerview.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+
+        if (userNumber != null) {
+            client.getUserGames(userNumber).enqueue(object : Callback<games> {
+                override fun onResponse(call: Call<games>, response: Response<games>) {
+                    if (response?.body()?.userGames != null) {
+                        recyclerview.adapter = resultRecordAdapter(
+                            response.body()!!.userGames,
+                            charImageArray,
+                            charNameArray
+                        )
+                    }
+                }
+
+                override fun onFailure(call: Call<games>, t: Throwable) {
+                }
+
+            })
+        }
+
+        setPieChart()
     }
 
     // UI 변경 함수 (여기에서 인터페이스 수정)
@@ -470,4 +464,153 @@ class RecordActivitys: AppCompatActivity() {
 
 
     }
+
+    private fun setPieChart(){
+        val pieChart: PieChart = findViewById(R.id.pieChart)
+        pieChart.setUsePercentValues(true)
+        // 요약 설명 유무
+        pieChart.description.isEnabled = false;
+        // 차트 돌리면 돌아가는 속도
+        pieChart.dragDecelerationFrictionCoef = 1f;
+
+        // 그래프 가운데 Hole 유무
+        pieChart.isDrawHoleEnabled = true;
+        pieChart.setHoleColor(Color.WHITE);
+        // 선명도 조정값
+        pieChart.transparentCircleRadius = 61f;
+
+        pieChart.setExtraOffsets(-5f,0f,-5f,-10f);
+
+        val yValues = ArrayList<PieEntry>()
+        yValues.add(PieEntry(34f, "승"))
+        yValues.add(PieEntry(66f, "패"))
+
+        val dataSet = PieDataSet(yValues, "")
+        // 데이터 사이 공간 너비 값
+        dataSet.sliceSpace = 1f
+        dataSet.selectionShift = 0f
+        dataSet.setColors(*ColorTemplate.MATERIAL_COLORS)
+
+        val data = PieData(dataSet)
+        data.setValueTextSize(10f)
+        data.setValueTextColor(Color.WHITE)
+
+        pieChart.data = data
+    }
+
+    private fun setTotalBtn() {
+        val totalBtnSolo = findViewById<TextView>(R.id.total_btn_solo)
+        val totalBtnDuo = findViewById<TextView>(R.id.total_btn_duo)
+        val totalBtnSquad = findViewById<TextView>(R.id.total_btn_squad)
+        val centerSoloUnderBar = findViewById<ImageView>(R.id.center_solo_underbar)
+        val centerDuoUnderBar = findViewById<ImageView>(R.id.center_duo_underbar)
+        val centerSquadUnderBar = findViewById<ImageView>(R.id.center_squad_underbar)
+
+        totalBtnSolo.setTextColor(Color.parseColor("#E8B32C"))
+        centerDuoUnderBar.visibility = View.GONE
+        centerSquadUnderBar.visibility = View.GONE
+
+        // total - solo 버튼 리스너
+        totalBtnSolo.setOnClickListener {
+            val solo_charcode1 = 1
+            val solo_charcode2 = 2
+            val solo_charcode3 = 3
+            // solo newFrag가 null을 return함.
+            val solo_newFrag = supportFragmentManager.findFragmentById(R.id.total_summary) as total_summary_fragment
+
+            solo_newFrag?.changeC1(
+                charImageArray[solo_charcode1 - 1],
+                charNameArray[solo_charcode1 - 1],
+                "AVG 1st",
+                "11게임"
+            )
+            solo_newFrag?.changeC2(
+                charImageArray[solo_charcode2 - 1],
+                charNameArray[solo_charcode2 - 1],
+                "AVG 1st",
+                "11게임"
+            )
+            solo_newFrag?.changeC3(
+                charImageArray[solo_charcode3 - 1],
+                charNameArray[solo_charcode3 - 1],
+                "AVG 1st",
+                "11게임"
+            )
+            totalBtnSolo.setTextColor(Color.parseColor("#E8B32C"))
+            totalBtnDuo.setTextColor(Color.parseColor("#5A5858"))
+            totalBtnSquad.setTextColor(Color.parseColor("#5A5858"))
+            centerSoloUnderBar.visibility = View.VISIBLE
+            centerDuoUnderBar.visibility = View.GONE
+            centerSquadUnderBar.visibility = View.GONE
+        }
+
+        // total - duo 버튼 리스너
+        totalBtnDuo.setOnClickListener {
+            val charcode1 = 11
+            val charcode2 = 12
+            val charcode3 = 13
+            val duo_newFrag = supportFragmentManager.findFragmentById(R.id.total_summary) as total_summary_fragment
+
+            duo_newFrag.changeC1(
+                charImageArray[charcode1 - 1],
+                charNameArray[charcode1 - 1],
+                "AVG 2nd",
+                "22게임"
+            )
+            duo_newFrag.changeC2(
+                charImageArray[charcode2 - 1],
+                charNameArray[charcode2 - 1],
+                "AVG 2nd",
+                "22게임"
+            )
+            duo_newFrag.changeC3(
+                charImageArray[charcode3 - 1],
+                charNameArray[charcode3 - 1],
+                "AVG 2nd",
+                "22게임"
+            )
+            totalBtnSolo.setTextColor(Color.parseColor("#5A5858"))
+            totalBtnDuo.setTextColor(Color.parseColor("#E8B32C"))
+            totalBtnSquad.setTextColor(Color.parseColor("#5A5858"))
+            centerSoloUnderBar.visibility = View.GONE
+            centerDuoUnderBar.visibility = View.VISIBLE
+            centerSquadUnderBar.visibility = View.GONE
+        }
+
+        // total - squad 버튼 리스너
+        totalBtnSquad.setOnClickListener {
+            totalBtnSquad.setTextColor(Color.parseColor("#E8B32C"))
+            val charcode1 = 17
+            val charcode2 = 18
+            val charcode3 = 19
+            val squad_newFrag = supportFragmentManager.findFragmentById(R.id.total_summary) as total_summary_fragment
+
+            squad_newFrag.changeC1(
+                charImageArray[charcode1 - 1],
+                charNameArray[charcode1 - 1],
+                "AVG 3rd",
+                "33게임"
+            )
+            squad_newFrag.changeC2(
+                charImageArray[charcode2 - 1],
+                charNameArray[charcode2 - 1],
+                "AVG 3rd",
+                "33게임"
+            )
+            squad_newFrag.changeC3(
+                charImageArray[charcode3 - 1],
+                charNameArray[charcode3 - 1],
+                "AVG 3rd",
+                "33게임"
+            )
+
+            totalBtnSolo.setTextColor(Color.parseColor("#5A5858"))
+            totalBtnDuo.setTextColor(Color.parseColor("#5A5858"))
+            totalBtnSquad.setTextColor(Color.parseColor("#E8B32C"))
+            centerSoloUnderBar.visibility = View.GONE
+            centerDuoUnderBar.visibility = View.GONE
+            centerSquadUnderBar.visibility = View.VISIBLE
+        }
+    }
 }
+
