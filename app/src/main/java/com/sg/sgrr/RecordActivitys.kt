@@ -8,10 +8,8 @@ import com.sg.sgrr.Retrofit.BsAPI
 import com.sg.sgrr.Retrofit.characterStats
 import com.sg.sgrr.Retrofit.stats
 import com.sg.sgrr.fragment.total_summary_fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.sg.sgrr.Adapter.resultRecordAdapter
-import com.sg.sgrr.Retrofit.games
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -22,15 +20,37 @@ class RecordActivitys: AppCompatActivity() {
 
     val stats = ArrayList<stats>()
     val charImageArray = ArrayList<Int>()
-
+    val charProfileArray = ArrayList<Int>()
     val charNameArray = ArrayList<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.record_result_activity)
 
+        // 캐릭터 이미지(Profile) Array
+        charProfileArray.add(R.drawable.char_1profile)
+        charProfileArray.add(R.drawable.char_2profile)
+        charProfileArray.add(R.drawable.char_3profile)
+        charProfileArray.add(R.drawable.char_4profile)
+        charProfileArray.add(R.drawable.char_5profile)
+        charProfileArray.add(R.drawable.char_6profile)
+        charProfileArray.add(R.drawable.char_7profile)
+        charProfileArray.add(R.drawable.char_8profile)
+        charProfileArray.add(R.drawable.char_9profile)
+        charProfileArray.add(R.drawable.char_10profile)
+        charProfileArray.add(R.drawable.char_11profile)
+        charProfileArray.add(R.drawable.char_12profile)
+        charProfileArray.add(R.drawable.char_13profile)
+        charProfileArray.add(R.drawable.char_14profile)
+        charProfileArray.add(R.drawable.char_15profile)
+        charProfileArray.add(R.drawable.char_16profile)
+        charProfileArray.add(R.drawable.char_17profile)
+        charProfileArray.add(R.drawable.char_18profile)
+        charProfileArray.add(R.drawable.char_19profile)
+        //charProfileArray.add(R.drawable.char_20profile)
+        //charProfileArray.add(R.drawable.char_21profile)
+
         // 캐릭터 이미지(Portrait) Array
-        charImageArray.add(R.drawable.char_1portrait)
         charImageArray.add(R.drawable.char_1portrait)
         charImageArray.add(R.drawable.char_2portrait)
         charImageArray.add(R.drawable.char_3portrait)
@@ -50,11 +70,10 @@ class RecordActivitys: AppCompatActivity() {
         charImageArray.add(R.drawable.char_17portrait)
         charImageArray.add(R.drawable.char_18portrait)
         charImageArray.add(R.drawable.char_19portrait)
-        charImageArray.add(R.drawable.char_19portrait)
-        charImageArray.add(R.drawable.char_19portrait)
+        //charImageArray.add(R.drawable.char_20portrait)
+        //charImageArray.add(R.drawable.char_21portrait)
 
         // 캐릭터 이름 Array
-        charNameArray.add("재키")
         charNameArray.add("재키")
         charNameArray.add("아야")
         charNameArray.add("피오라")
@@ -76,6 +95,7 @@ class RecordActivitys: AppCompatActivity() {
         charNameArray.add("엠마")
         charNameArray.add("레녹스")
         charNameArray.add("로지")
+        charNameArray.add("루크")
 
         // total - solo 버튼 리스너
         findViewById<TextView>(R.id.total_btn_solo).setOnClickListener {
@@ -124,8 +144,6 @@ class RecordActivitys: AppCompatActivity() {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
         val client = retrofit.create(BsAPI::class.java)
-
-        val intent = intent
         val userNumber = intent.getIntExtra("UserNumber", 0).toString()
         findViewById<TextView>(R.id.profile_name).text = intent.getStringExtra("UserNickname")
         if (userNumber != "0") {
@@ -143,29 +161,12 @@ class RecordActivitys: AppCompatActivity() {
             })
         }
 
-        val recyclerview = findViewById<RecyclerView>(R.id.score)
-        recyclerview.setHasFixedSize(true)
-        recyclerview.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-
-        if (userNumber != null) {
-            client.getUserGames(userNumber).enqueue(object: Callback<games>{
-                override fun onResponse(call: Call<games>, response: Response<games>) {
-                    if(response?.body()?.userGames != null){
-                        recyclerview.adapter = resultRecordAdapter(response.body()!!.userGames, charImageArray, charNameArray)
-                    }
-                }
-
-                override fun onFailure(call: Call<games>, t: Throwable) {
-                }
-
-            })
-        }
-
     }
 
+    // UI 변경 함수 (여기에서 인터페이스 수정)
     fun uiSomething(){
-        // 1. 모스트 캐릭터 매치
-        val mostChar = calc_mostChar()
+        // 1. 캐릭터 별 데이터를 담은 2차원 배열 = charData
+        val charData = calc_mostChar()
 
         // 2. 랭크 계산
         calc_Rank()
@@ -220,11 +221,12 @@ class RecordActivitys: AppCompatActivity() {
             }
         }
         
-        findViewById<ImageView>(R.id.profile_image).setImageResource(charImageArray[mostChar])
+        // 프로필 캐릭터 사진 변경
+        findViewById<ImageView>(R.id.profile_image).setImageResource(charProfileArray[mostChar-1])
         return totalCharacter
     }
 
-    // 상단 데미안, Rank, 평균 등수 3가지
+    // Rank, 평균 등수, 티어표(Summary) 3가지
     private fun calc_Rank() {
         val soloMMR = stats[0].userStats[0].mmr
         val soloRank = stats[0].userStats[0].rank
@@ -238,10 +240,37 @@ class RecordActivitys: AppCompatActivity() {
         val squadRank = stats[0].userStats[2].rank
         val squadRankSize = stats[0].userStats[2].rankSize
 
-        var maxMmr:Int
-        var maxRank: Double
-        var maxRankSize: Double
-        if( soloMMR > duoMMR ){
+        var maxMmr = if(soloMMR > duoMMR){
+            if(soloMMR > squadMMR)
+                soloMMR
+            else
+                squadMMR
+        }else{
+            if(duoMMR > squadMMR)
+                duoMMR
+            else
+                squadMMR
+        }
+        var maxRankSize : Double
+        var maxRank = if(soloRank > duoRank){
+            if(soloRank > squadRank){
+                maxRankSize = soloRankSize.toDouble()
+                soloRank.toDouble()
+            }else{
+                maxRankSize = squadRankSize.toDouble()
+                squadRank.toDouble()
+            }
+        }else{
+            if(duoRank > squadRank){
+                maxRankSize = duoRankSize.toDouble()
+                duoRank.toDouble()
+            }else{
+                maxRankSize = squadRankSize.toDouble()
+                squadRank.toDouble()
+            }
+        }
+
+        /*if( soloMMR > duoMMR ){
             if( soloMMR > squadMMR){
                 maxMmr = soloMMR
                 maxRank = soloRank.toDouble()
@@ -261,18 +290,39 @@ class RecordActivitys: AppCompatActivity() {
                 maxRank = squadRank.toDouble()
                 maxRankSize = squadRankSize.toDouble()
             }
+        }*/
+
+        // 프로필 랭킹
+        if(maxRank == 0.0){
+            findViewById<TextView>(R.id.profile_rank).text = "최고 MMR의 배치 정보가 없습니다."
+        } else{
+            findViewById<TextView>(R.id.profile_rank).text = "상위 ${maxRank}위 (상위 ${Math.round(maxRank / maxRankSize * 100)*10/10.0}%)"
         }
 
-        findViewById<TextView>(R.id.profile_rank).text = "상위 ${maxRank}위 (상위 ${Math.round(maxRank / maxRankSize * 100)*10/10.0}%)"
-        /*
-        findViewById<TextView>(R.id.profile_text).text = when (maxMmr) {
+        // 평균 등수
+        val soloGrade = stats[0].userStats[0].averageRank
+        val duoGrade = stats[0].userStats[1].averageRank
+        val squadGrade = stats[0].userStats[2].averageRank
+        var averGrade = soloGrade
+        var count = 1
+        if(duoGrade != 0.0){
+            averGrade += duoGrade
+            count++
+        }
+        if(squadGrade != 0.0){
+            averGrade += squadGrade
+            count++
+        }
+        findViewById<TextView>(R.id.profile_averRank).text = String.format("#%.1f", averGrade / count)
 
+        /*findViewById<ImageView>(R.id.profile_text).text = when (maxMmr) {
             in 0..399 -> {
                 when(maxMmr){
                     in 0..99 -> "아이언 IV"
                     in 100..199 -> "아이언 III"
                     in 200..299 -> "아이언 II"
                     else ->  "아이언 I"
+
                 }
             }
             in 400..799 -> {
@@ -331,11 +381,93 @@ class RecordActivitys: AppCompatActivity() {
                     else ->  "이터니티 I"
                 }
             }
+        }*/
+
+        // Summary - 솔로 MMR 및 Tier 그림
+        findViewById<TextView>(R.id.summary_txt_soloMMR).setText("${soloMMR} LP")
+        when (soloMMR) {
+            in 0..399 -> {
+                findViewById<ImageView>(R.id.summary_soloTier).setImageResource(R.drawable.tier_iron)
+            }
+            in 400..799 -> {
+                findViewById<ImageView>(R.id.summary_soloTier).setImageResource(R.drawable.tier_bronze)
+            }
+            in 800..1299 -> {
+                findViewById<ImageView>(R.id.summary_soloTier).setImageResource(R.drawable.tier_silver)
+            }
+            in 1300..1699 -> {
+                findViewById<ImageView>(R.id.summary_soloTier).setImageResource(R.drawable.tier_gold)
+            }
+            in 1700..2099 -> {
+                findViewById<ImageView>(R.id.summary_soloTier).setImageResource(R.drawable.tier_platinum)
+            }
+            in 2100..2499 -> {
+                findViewById<ImageView>(R.id.summary_soloTier).setImageResource(R.drawable.tier_diamond)
+            }
+            in 2500..2899 -> {
+                findViewById<ImageView>(R.id.summary_soloTier).setImageResource(R.drawable.tier_demigod)
+            }
+            else -> {
+                findViewById<ImageView>(R.id.summary_soloTier).setImageResource(R.drawable.tier_eternity)
+            }
         }
-*/
-        // summary_txt_soloMMR.setText(soloMMR)
-        //summary_duoTier.setText(duoMMR)
-        //summary_txt_squadMMR.setText(squadMMR)
-        // 각 이미지 설정해줘야함
+
+        findViewById<TextView>(R.id.summary_txt_duoMMR).setText("${duoMMR} LP")
+        when (duoMMR) {
+            in 0..399 -> {
+                findViewById<ImageView>(R.id.summary_duoTier).setImageResource(R.drawable.tier_iron)
+            }
+            in 400..799 -> {
+                findViewById<ImageView>(R.id.summary_duoTier).setImageResource(R.drawable.tier_bronze)
+            }
+            in 800..1299 -> {
+                findViewById<ImageView>(R.id.summary_duoTier).setImageResource(R.drawable.tier_silver)
+            }
+            in 1300..1699 -> {
+                findViewById<ImageView>(R.id.summary_duoTier).setImageResource(R.drawable.tier_gold)
+            }
+            in 1700..2099 -> {
+                findViewById<ImageView>(R.id.summary_duoTier).setImageResource(R.drawable.tier_platinum)
+            }
+            in 2100..2499 -> {
+                findViewById<ImageView>(R.id.summary_duoTier).setImageResource(R.drawable.tier_diamond)
+            }
+            in 2500..2899 -> {
+                findViewById<ImageView>(R.id.summary_duoTier).setImageResource(R.drawable.tier_demigod)
+            }
+            else -> {
+                findViewById<ImageView>(R.id.summary_duoTier).setImageResource(R.drawable.tier_eternity)
+            }
+        }
+
+        findViewById<TextView>(R.id.summary_txt_squadMMR).setText("${squadMMR} LP")
+        when (squadMMR) {
+            in 0..399 -> {
+                findViewById<ImageView>(R.id.summary_squadTier).setImageResource(R.drawable.tier_iron)
+            }
+            in 400..799 -> {
+                findViewById<ImageView>(R.id.summary_squadTier).setImageResource(R.drawable.tier_bronze)
+            }
+            in 800..1299 -> {
+                findViewById<ImageView>(R.id.summary_squadTier).setImageResource(R.drawable.tier_silver)
+            }
+            in 1300..1699 -> {
+                findViewById<ImageView>(R.id.summary_squadTier).setImageResource(R.drawable.tier_gold)
+            }
+            in 1700..2099 -> {
+                findViewById<ImageView>(R.id.summary_squadTier).setImageResource(R.drawable.tier_platinum)
+            }
+            in 2100..2499 -> {
+                findViewById<ImageView>(R.id.summary_squadTier).setImageResource(R.drawable.tier_diamond)
+            }
+            in 2500..2899 -> {
+                findViewById<ImageView>(R.id.summary_squadTier).setImageResource(R.drawable.tier_demigod)
+            }
+            else -> {
+                findViewById<ImageView>(R.id.summary_squadTier).setImageResource(R.drawable.tier_eternity)
+            }
+        }
+
+
     }
 }

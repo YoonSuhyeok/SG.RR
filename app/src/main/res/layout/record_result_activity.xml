@@ -107,8 +107,8 @@
 
         <TextView
             android:id="@+id/profile_averRank"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="33dp"
             android:text="#1"
             android:textSize="30dp"
@@ -119,11 +119,9 @@
             android:id="@+id/textView5"
             android:layout_width="37dp"
             android:layout_height="12dp"
-            android:layout_marginTop="8dp"
             android:text="평균등수"
             android:textSize="10dp"
             app:layout_constraintEnd_toEndOf="@+id/profile_averRank"
-            app:layout_constraintStart_toStartOf="@+id/profile_averRank"
             app:layout_constraintTop_toBottomOf="@+id/profile_averRank" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -276,7 +274,7 @@
             app:srcCompat="@drawable/ic_underline_squad" />
 
         <ImageView
-            android:id="@+id/imageView7"
+            android:id="@+id/summary_squadTier"
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginTop="8dp"
@@ -286,7 +284,7 @@
             app:srcCompat="@drawable/tier_platinum" />
 
         <TextView
-            android:id="@+id/summary_txt_duoMMR2"
+            android:id="@+id/summary_txt_squadMMR"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -294,9 +292,9 @@
             android:textColor="#54A96C"
             android:textSize="20dp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/imageView7"
-            app:layout_constraintStart_toStartOf="@+id/imageView7"
-            app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+            app:layout_constraintEnd_toEndOf="@+id/summary_squadTier"
+            app:layout_constraintStart_toStartOf="@+id/summary_squadTier"
+            app:layout_constraintTop_toBottomOf="@+id/summary_squadTier" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
