@@ -1,6 +1,8 @@
 package com.sg.sgrr
 
+import android.graphics.Color
 import android.os.Bundle
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -161,99 +163,7 @@ class RecordActivitys: AppCompatActivity() {
         calc_Rank()
 
         // 3.
-        // total - solo 버튼 리스너
-        findViewById<TextView>(R.id.total_btn_solo).setOnClickListener {
-
-            val solo_charcode1 = top3CharArray[0][0].characterCode
-            val solo_charcode2 = top3CharArray[0][1].characterCode
-            val solo_charcode3 = top3CharArray[0][2].characterCode
-            val solo_newFrag = supportFragmentManager.findFragmentById(R.id.total_summary) as total_summary_fragment
-
-            if(solo_charcode1 != 0)
-                solo_newFrag?.changeC1(
-                        charImageArray[solo_charcode1-1],
-                        charNameArray[solo_charcode1-1],
-                        String.format("AVG %d %s", top3CharArray[0][0].averageRank, when(top3CharArray[0][0].averageRank){ 1 -> {"st"} 2 -> {"nd"} 3 -> {"rd"} else -> {"th"}}),
-                        String.format("%d 게임", top3CharArray[0][0].totalGames)
-                )
-            if(solo_charcode2 != 0)
-                solo_newFrag?.changeC2(
-                        charImageArray[solo_charcode2-1],
-                        charNameArray[solo_charcode2-1],
-                        String.format("AVG %d %s", top3CharArray[0][1].averageRank, when(top3CharArray[0][1].averageRank){ 1 -> {"st"} 2 -> {"nd"} 3 -> {"rd"} else -> {"th"}}),
-                        String.format("%d 게임", top3CharArray[0][1].totalGames)
-                )
-            if(solo_charcode3 != 0)
-                solo_newFrag?.changeC3(
-                        charImageArray[solo_charcode3-1],
-                        charNameArray[solo_charcode3-1],
-                        String.format("AVG %d %s", top3CharArray[0][2].averageRank, when(top3CharArray[0][2].averageRank){ 1 -> {"st"} 2 -> {"nd"} 3 -> {"rd"} else -> {"th"}}),
-                        String.format("%d 게임", top3CharArray[0][2].totalGames)
-                )
-        }
-
-        // total - duo 버튼 리스너
-        findViewById<TextView>(R.id.total_btn_duo).setOnClickListener {
-
-            val duo_charcode1 = top3CharArray[1][0].characterCode
-            val duo_charcode2 = top3CharArray[1][1].characterCode
-            val duo_charcode3 = top3CharArray[1][2].characterCode
-            val duo_newFrag = supportFragmentManager.findFragmentById(R.id.total_summary) as total_summary_fragment
-
-            if(duo_charcode1 != 0)
-                duo_newFrag.changeC1(
-                        charImageArray[duo_charcode1-1],
-                        charNameArray[duo_charcode1-1],
-                        String.format("AVG %d %s", top3CharArray[1][0].averageRank, when(top3CharArray[1][0].averageRank){ 1 -> {"st"} 2 -> {"nd"} 3 -> {"rd"} else -> {"th"}}),
-                        String.format("%d 게임", top3CharArray[1][0].totalGames)
-                )
-            if(duo_charcode2 != 0)
-                duo_newFrag.changeC2(
-                        charImageArray[duo_charcode2-1],
-                        charNameArray[duo_charcode2-1],
-                        String.format("AVG %d %s", top3CharArray[1][1].averageRank, when(top3CharArray[1][1].averageRank){ 1 -> {"st"} 2 -> {"nd"} 3 -> {"rd"} else -> {"th"}}),
-                        String.format("%d 게임", top3CharArray[1][1].totalGames)
-                )
-            if(duo_charcode3 != 0)
-                duo_newFrag.changeC3(
-                        charImageArray[duo_charcode3-1],
-                        charNameArray[duo_charcode3-1],
-                        String.format("AVG %d %s", top3CharArray[1][2].averageRank, when(top3CharArray[1][2].averageRank){ 1 -> {"st"} 2 -> {"nd"} 3 -> {"rd"} else -> {"th"}}),
-                        String.format("%d 게임", top3CharArray[1][2].totalGames)
-                )
-        }
-
-        // total - squad 버튼 리스너
-        findViewById<TextView>(R.id.total_btn_squad).setOnClickListener {
-
-            val squad_charcode1 = top3CharArray[2][0].characterCode
-            val squad_charcode2 = top3CharArray[2][1].characterCode
-            val squad_charcode3 = top3CharArray[2][2].characterCode
-            val squad_newFrag = supportFragmentManager.findFragmentById(R.id.total_summary) as total_summary_fragment
-
-            if(squad_charcode1 != 0)
-                squad_newFrag.changeC1(
-                        charImageArray[squad_charcode1-1],
-                        charNameArray[squad_charcode1-1],
-                        String.format("AVG %d %s", top3CharArray[2][0].averageRank, when(top3CharArray[2][0].averageRank){ 1 -> {"st"} 2 -> {"nd"} 3 -> {"rd"} else -> {"th"}}),
-                        String.format("%d 게임", top3CharArray[2][0].totalGames)
-                )
-            if (squad_charcode2 != 0)
-                squad_newFrag.changeC2(
-                        charImageArray[squad_charcode2-1],
-                        charNameArray[squad_charcode2-1],
-                        String.format("AVG %d %s", top3CharArray[2][1].averageRank, when(top3CharArray[2][1].averageRank){ 1 -> {"st"} 2 -> {"nd"} 3 -> {"rd"} else -> {"th"}}),
-                        String.format("%d 게임", top3CharArray[2][1].totalGames)
-                )
-            if (squad_charcode3 != 0)
-                squad_newFrag.changeC3(
-                        charImageArray[squad_charcode3-1],
-                        charNameArray[squad_charcode3-1],
-                        String.format("AVG %d %s", top3CharArray[2][2].averageRank, when(top3CharArray[2][2].averageRank){ 1 -> {"st"} 2 -> {"nd"} 3 -> {"rd"} else -> {"th"}}),
-                        String.format("%d 게임", top3CharArray[2][2].totalGames)
-                )
-        }
-
+        setTotalBtn()
         supportFragmentManager.beginTransaction().replace(R.id.total_summary, total_summary_fragment()).commit()
     }
 
@@ -707,105 +617,103 @@ class RecordActivitys: AppCompatActivity() {
         centerSquadUnderBar.visibility = View.GONE
 
         // total - solo 버튼 리스너
-        totalBtnSolo.setOnClickListener {
-            val solo_charcode1 = 1
-            val solo_charcode2 = 2
-            val solo_charcode3 = 3
-            // solo newFrag가 null을 return함.
+        findViewById<TextView>(R.id.total_btn_solo).setOnClickListener {
+
+            val solo_charcode1 = top3CharArray[0][0].characterCode
+            val solo_charcode2 = top3CharArray[0][1].characterCode
+            val solo_charcode3 = top3CharArray[0][2].characterCode
             val solo_newFrag = supportFragmentManager.findFragmentById(R.id.total_summary) as total_summary_fragment
 
-            solo_newFrag?.changeC1(
-                charImageArray[solo_charcode1 - 1],
-                charNameArray[solo_charcode1 - 1],
-                "AVG 1st",
-                "11게임"
-            )
-            solo_newFrag?.changeC2(
-                charImageArray[solo_charcode2 - 1],
-                charNameArray[solo_charcode2 - 1],
-                "AVG 1st",
-                "11게임"
-            )
-            solo_newFrag?.changeC3(
-                charImageArray[solo_charcode3 - 1],
-                charNameArray[solo_charcode3 - 1],
-                "AVG 1st",
-                "11게임"
-            )
-            totalBtnSolo.setTextColor(Color.parseColor("#E8B32C"))
-            totalBtnDuo.setTextColor(Color.parseColor("#5A5858"))
-            totalBtnSquad.setTextColor(Color.parseColor("#5A5858"))
-            centerSoloUnderBar.visibility = View.VISIBLE
-            centerDuoUnderBar.visibility = View.GONE
-            centerSquadUnderBar.visibility = View.GONE
+            if(solo_charcode1 != 0)
+                solo_newFrag?.changeC1(
+                        charImageArray[solo_charcode1-1],
+                        charNameArray[solo_charcode1-1],
+                        String.format("AVG %d %s", top3CharArray[0][0].averageRank, when(top3CharArray[0][0].averageRank){ 1 -> {"st"} 2 -> {"nd"} 3 -> {"rd"} else -> {"th"}}),
+                        String.format("%d 게임", top3CharArray[0][0].totalGames)
+                )
+            if(solo_charcode2 != 0)
+                solo_newFrag?.changeC2(
+                        charImageArray[solo_charcode2-1],
+                        charNameArray[solo_charcode2-1],
+                        String.format("AVG %d %s", top3CharArray[0][1].averageRank, when(top3CharArray[0][1].averageRank){ 1 -> {"st"} 2 -> {"nd"} 3 -> {"rd"} else -> {"th"}}),
+                        String.format("%d 게임", top3CharArray[0][1].totalGames)
+                )
+            if(solo_charcode3 != 0)
+                solo_newFrag?.changeC3(
+                        charImageArray[solo_charcode3-1],
+                        charNameArray[solo_charcode3-1],
+                        String.format("AVG %d %s", top3CharArray[0][2].averageRank, when(top3CharArray[0][2].averageRank){ 1 -> {"st"} 2 -> {"nd"} 3 -> {"rd"} else -> {"th"}}),
+                        String.format("%d 게임", top3CharArray[0][2].totalGames)
+                )
         }
 
         // total - duo 버튼 리스너
-        totalBtnDuo.setOnClickListener {
-            val charcode1 = 11
-            val charcode2 = 12
-            val charcode3 = 13
+        findViewById<TextView>(R.id.total_btn_duo).setOnClickListener {
+
+            val duo_charcode1 = top3CharArray[1][0].characterCode
+            val duo_charcode2 = top3CharArray[1][1].characterCode
+            val duo_charcode3 = top3CharArray[1][2].characterCode
             val duo_newFrag = supportFragmentManager.findFragmentById(R.id.total_summary) as total_summary_fragment
 
-            duo_newFrag.changeC1(
-                charImageArray[charcode1 - 1],
-                charNameArray[charcode1 - 1],
-                "AVG 2nd",
-                "22게임"
-            )
-            duo_newFrag.changeC2(
-                charImageArray[charcode2 - 1],
-                charNameArray[charcode2 - 1],
-                "AVG 2nd",
-                "22게임"
-            )
-            duo_newFrag.changeC3(
-                charImageArray[charcode3 - 1],
-                charNameArray[charcode3 - 1],
-                "AVG 2nd",
-                "22게임"
-            )
-            totalBtnSolo.setTextColor(Color.parseColor("#5A5858"))
-            totalBtnDuo.setTextColor(Color.parseColor("#E8B32C"))
-            totalBtnSquad.setTextColor(Color.parseColor("#5A5858"))
-            centerSoloUnderBar.visibility = View.GONE
-            centerDuoUnderBar.visibility = View.VISIBLE
-            centerSquadUnderBar.visibility = View.GONE
+            if(duo_charcode1 != 0)
+                duo_newFrag.changeC1(
+                        charImageArray[duo_charcode1-1],
+                        charNameArray[duo_charcode1-1],
+                        String.format("AVG %d %s", top3CharArray[1][0].averageRank, when(top3CharArray[1][0].averageRank){ 1 -> {"st"} 2 -> {"nd"} 3 -> {"rd"} else -> {"th"}}),
+                        String.format("%d 게임", top3CharArray[1][0].totalGames)
+                )
+            if(duo_charcode2 != 0)
+                duo_newFrag.changeC2(
+                        charImageArray[duo_charcode2-1],
+                        charNameArray[duo_charcode2-1],
+                        String.format("AVG %d %s", top3CharArray[1][1].averageRank, when(top3CharArray[1][1].averageRank){ 1 -> {"st"} 2 -> {"nd"} 3 -> {"rd"} else -> {"th"}}),
+                        String.format("%d 게임", top3CharArray[1][1].totalGames)
+                )
+            if(duo_charcode3 != 0)
+                duo_newFrag.changeC3(
+                        charImageArray[duo_charcode3-1],
+                        charNameArray[duo_charcode3-1],
+                        String.format("AVG %d %s", top3CharArray[1][2].averageRank, when(top3CharArray[1][2].averageRank){ 1 -> {"st"} 2 -> {"nd"} 3 -> {"rd"} else -> {"th"}}),
+                        String.format("%d 게임", top3CharArray[1][2].totalGames)
+                )
         }
 
         // total - squad 버튼 리스너
-        totalBtnSquad.setOnClickListener {
-            totalBtnSquad.setTextColor(Color.parseColor("#E8B32C"))
-            val charcode1 = 17
-            val charcode2 = 18
-            val charcode3 = 19
+        findViewById<TextView>(R.id.total_btn_squad).setOnClickListener {
+
+            val squad_charcode1 = top3CharArray[2][0].characterCode
+            val squad_charcode2 = top3CharArray[2][1].characterCode
+            val squad_charcode3 = top3CharArray[2][2].characterCode
             val squad_newFrag = supportFragmentManager.findFragmentById(R.id.total_summary) as total_summary_fragment
 
-            squad_newFrag.changeC1(
-                charImageArray[charcode1 - 1],
-                charNameArray[charcode1 - 1],
-                "AVG 3rd",
-                "33게임"
-            )
-            squad_newFrag.changeC2(
-                charImageArray[charcode2 - 1],
-                charNameArray[charcode2 - 1],
-                "AVG 3rd",
-                "33게임"
-            )
-            squad_newFrag.changeC3(
-                charImageArray[charcode3 - 1],
-                charNameArray[charcode3 - 1],
-                "AVG 3rd",
-                "33게임"
-            )
-
-            totalBtnSolo.setTextColor(Color.parseColor("#5A5858"))
-            totalBtnDuo.setTextColor(Color.parseColor("#5A5858"))
-            totalBtnSquad.setTextColor(Color.parseColor("#E8B32C"))
-            centerSoloUnderBar.visibility = View.GONE
-            centerDuoUnderBar.visibility = View.GONE
-            centerSquadUnderBar.visibility = View.VISIBLE
+            if(squad_charcode1 != 0)
+                squad_newFrag.changeC1(
+                        charImageArray[squad_charcode1-1],
+                        charNameArray[squad_charcode1-1],
+                        String.format("AVG %d %s", top3CharArray[2][0].averageRank, when(top3CharArray[2][0].averageRank){ 1 -> {"st"} 2 -> {"nd"} 3 -> {"rd"} else -> {"th"}}),
+                        String.format("%d 게임", top3CharArray[2][0].totalGames)
+                )
+            if (squad_charcode2 != 0)
+                squad_newFrag.changeC2(
+                        charImageArray[squad_charcode2-1],
+                        charNameArray[squad_charcode2-1],
+                        String.format("AVG %d %s", top3CharArray[2][1].averageRank, when(top3CharArray[2][1].averageRank){ 1 -> {"st"} 2 -> {"nd"} 3 -> {"rd"} else -> {"th"}}),
+                        String.format("%d 게임", top3CharArray[2][1].totalGames)
+                )
+            if (squad_charcode3 != 0)
+                squad_newFrag.changeC3(
+                        charImageArray[squad_charcode3-1],
+                        charNameArray[squad_charcode3-1],
+                        String.format("AVG %d %s", top3CharArray[2][2].averageRank, when(top3CharArray[2][2].averageRank){ 1 -> {"st"} 2 -> {"nd"} 3 -> {"rd"} else -> {"th"}}),
+                        String.format("%d 게임", top3CharArray[2][2].totalGames)
+                )
         }
+
+        totalBtnSolo.setTextColor(Color.parseColor("#5A5858"))
+        totalBtnDuo.setTextColor(Color.parseColor("#5A5858"))
+        totalBtnSquad.setTextColor(Color.parseColor("#E8B32C"))
+        centerSoloUnderBar.visibility = View.GONE
+        centerDuoUnderBar.visibility = View.GONE
+        centerSquadUnderBar.visibility = View.VISIBLE
     }
 }
