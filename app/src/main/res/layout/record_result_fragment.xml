@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="#FFFFFF"
+    android:backgroundTint="#FFFFFF"
     android:orientation="vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,8 +17,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout2"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -25,7 +26,8 @@
             <ImageView
                 android:id="@+id/record_sidebar"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/sidebars" />
@@ -35,11 +37,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="11dp"
                 android:text="#8"
                 android:textSize="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/record_sidebar"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.36" />
 
             <TextView
                 android:id="@+id/record_txt_mode"
@@ -77,32 +80,33 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.42000002"
                 app:srcCompat="@drawable/char_10portrait" />
 
             <TextView
                 android:id="@+id/record_txt_level"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
                 android:text="14"
                 android:textColor="#000000"
-                app:layout_constraintStart_toEndOf="@+id/charImage"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/textView6"
+                app:layout_constraintStart_toStartOf="@+id/textView6"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.42000002" />
 
             <TextView
                 android:id="@+id/textView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
+                android:layout_marginStart="16dp"
                 android:text="레벨"
                 android:textColor="#000000"
                 android:textSize="8dp"
-                app:layout_constraintEnd_toEndOf="@+id/record_txt_level"
-                app:layout_constraintStart_toStartOf="@+id/record_txt_level"
+                app:layout_constraintStart_toEndOf="@+id/charImage"
                 app:layout_constraintTop_toBottomOf="@+id/record_txt_level" />
 
             <TextView
@@ -124,12 +128,79 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
             android:text="2 / 0 / 1"
             android:textColor="#000000"
             android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/constraintLayout3"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.42000002" />
+
+        <ImageView
+            android:id="@+id/item1"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="140dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/round10"
+            android:backgroundTint="#A56E6E"
+            app:layout_constraintStart_toEndOf="@+id/constraintLayout3"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/cupid_s_bow" />
+
+        <ImageView
+            android:id="@+id/item2"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="2dp"
+            android:background="@drawable/round10"
+            app:layout_constraintStart_toEndOf="@+id/item1"
+            app:layout_constraintTop_toTopOf="@+id/item1"
+            app:srcCompat="@drawable/armor_auto_arms" />
+
+        <ImageView
+            android:id="@+id/item3"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:background="@drawable/round10"
+            android:layout_marginStart="2dp"
+            app:layout_constraintStart_toEndOf="@+id/item2"
+            app:layout_constraintTop_toTopOf="@+id/item2"
+            app:srcCompat="@drawable/cupid_s_bow" />
+
+        <ImageView
+            android:id="@+id/item4"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:background="@drawable/round10"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/item1"
+            app:layout_constraintTop_toBottomOf="@+id/item1"
+            app:srcCompat="@drawable/armor_auto_arms" />
+
+        <ImageView
+            android:id="@+id/item5"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:background="@drawable/round10"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="2dp"
+            app:layout_constraintStart_toEndOf="@+id/item4"
+            app:layout_constraintTop_toBottomOf="@+id/item2"
+            app:srcCompat="@drawable/cupid_s_bow" />
+
+        <ImageView
+            android:id="@+id/item6"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:background="@drawable/round10"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="2dp"
+            app:layout_constraintStart_toEndOf="@+id/item5"
+            app:layout_constraintTop_toBottomOf="@+id/item3"
+            app:srcCompat="@drawable/armor_auto_arms" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

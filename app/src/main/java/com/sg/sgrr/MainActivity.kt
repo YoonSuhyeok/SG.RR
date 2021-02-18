@@ -1,23 +1,29 @@
 package com.sg.sgrr
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import com.sg.sgrr.Adapter.MainRecordAapter
 import com.sg.sgrr.Retrofit.BsAPI
 import com.sg.sgrr.Retrofit.Retrofits
 import com.sg.sgrr.Retrofit.stats
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.io.IOException
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -64,6 +70,5 @@ class MainActivity : AppCompatActivity() {
             })
         }
         //startActivity(Intent(this, RecordActivity::class.java))
-
     }
 }

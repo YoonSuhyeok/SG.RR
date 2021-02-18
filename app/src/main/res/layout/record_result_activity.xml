@@ -76,7 +76,7 @@
             android:layout_marginStart="18dp"
             android:layout_marginTop="24dp"
             android:text="수혁짱짱123"
-            android:textSize="12dp"
+            android:textSize="18sp"
             app:layout_constraintStart_toEndOf="@+id/profile_image"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -84,9 +84,9 @@
             android:id="@+id/profile_rank"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="4dp"
             android:text="상위 111,111위(상위 1%)"
-            android:textSize="7dp"
+            android:textSize="10sp"
             app:layout_constraintStart_toStartOf="@+id/profile_name"
             app:layout_constraintTop_toBottomOf="@+id/profile_name" />
 
@@ -102,11 +102,12 @@
 
         <TextView
             android:id="@+id/textView5"
-            android:layout_width="37dp"
-            android:layout_height="12dp"
-            android:text="평균등수"
-            android:textSize="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="평균 랭크"
+            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="@+id/profile_averRank"
+            app:layout_constraintStart_toStartOf="@+id/profile_averRank"
             app:layout_constraintTop_toBottomOf="@+id/profile_averRank" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -249,7 +250,7 @@
             app:layout_constraintTop_toTopOf="@+id/duo" />
 
         <ImageView
-            android:id="@+id/imageView5"
+            android:id="@+id/item5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -265,7 +266,7 @@
             android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="@+id/squad"
             app:layout_constraintStart_toStartOf="@+id/squad"
-            app:layout_constraintTop_toBottomOf="@+id/imageView5"
+            app:layout_constraintTop_toBottomOf="@+id/item5"
             app:srcCompat="@drawable/tier_platinum" />
 
         <TextView

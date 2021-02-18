@@ -1,6 +1,7 @@
 package com.sg.sgrr
 
 import android.graphics.Color
+import android.graphics.Typeface
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
@@ -32,7 +33,376 @@ class RecordActivitys: AppCompatActivity() {
     val charProfileArray = ArrayList<Int>()
     val charNameArray = ArrayList<String>()
     val top3CharArray = Array(3) {Array<characterStats>(3){ i -> characterStats(0, 0, 0, 0, 0, 0, 0) } }
-
+    val item = mapOf(
+            101101 to R.drawable.weapon_scissors,
+            101102 to R.drawable.weapon_fountain_pen,
+            101104 to R.drawable.weapon_kitchen_knife,
+            101201 to R.drawable.weapon_army_knife,
+            101301 to R.drawable.weapon_rose_knife,
+            101401 to R.drawable.weapon_carnwennan,
+            101402 to R.drawable.weapon_mount_slicer,
+            101404 to R.drawable.weapon_vibroblade,
+            101405 to R.drawable.weapon_fragarach,
+            102101 to R.drawable.weapon_rusty_sword,
+            102201 to R.drawable.weapon_shamshir,
+            102301 to R.drawable.weapon_katana,
+            102401 to R.drawable.weapon_masamune,
+            102402 to R.drawable.weapon_muramasa,
+            102403 to R.drawable.weapon_bastard_sword,
+            102404 to R.drawable.weapon_jewel_sword,
+            102405 to R.drawable.weapon_thuan_thien,
+            102406 to R.drawable.weapon_arondight,
+            102407 to R.drawable.weapon_excalibur,
+            102408 to R.drawable.weapon_plasma_sword,
+            102409 to R.drawable.weapon_laevateinn,
+            102410 to R.drawable.weapon_monohoshizao,
+            102411 to R.drawable.weapon_hovud,
+            102501 to R.drawable.weapon_dainsleif,
+            103201 to R.drawable.weapon_twin_sword,
+            103301 to R.drawable.weapon_florentine,
+            103401 to R.drawable.weapon_divine_dual_swords,
+            103402 to R.drawable.weapon_starsteel_twin_swords,
+            103501 to R.drawable.weapon_dioscuri,
+            103502 to R.drawable.weapon_lloigor_and_zahr,
+            104101 to R.drawable.weapon_hammer,
+            104201 to R.drawable.weapon_warhammer,
+            104301 to R.drawable.weapon_morning_star,
+            104302 to R.drawable.weapon_black_stag_hammer,
+            104401 to R.drawable.weapon_fang_mace,
+            104402 to R.drawable.weapon_hammer_of_dagda,
+            104403 to R.drawable.weapon_hammer_of_thor,
+            104404 to R.drawable.weapon_evening_star,
+            104405 to R.drawable.weapon_magicstic,
+            105102 to R.drawable.weapon_pickaxe,
+            105103 to R.drawable.weapon_hatchet,
+            105201 to R.drawable.weapon_chain_scythe,
+            105202 to R.drawable.weapon_battle_axe,
+            105301 to R.drawable.weapon_light_hatchet,
+            105302 to R.drawable.weapon_reaper_s_scythe,
+            105401 to R.drawable.weapon_gigantic_axe,
+            105402 to R.drawable.weapon_beam_axe,
+            105403 to R.drawable.weapon_santa_muerte,
+            105404 to R.drawable.weapon_scythe,
+            105405 to R.drawable.weapon_parashu,
+            105406 to R.drawable.weapon_harpe,
+            107101 to R.drawable.weapon_short_spear,
+            107201 to R.drawable.weapon_bamboo_spear,
+            107301 to R.drawable.weapon_bident,
+            107302 to R.drawable.weapon_pike,
+            107303 to R.drawable.weapon_halberd_axe,
+            107401 to R.drawable.weapon_sharpened_spear,
+            107402 to R.drawable.weapon_gentian_silver_gun,
+            107403 to R.drawable.weapon_eighteen_foot_spear,
+            107404 to R.drawable.weapon_cosmic_bident,
+            107405 to R.drawable.weapon_lance_of_poseidon,
+            107406 to R.drawable.weapon_fangtian_huaji,
+            107407 to R.drawable.weapon_blazing_lance,
+            107408 to R.drawable.weapon_dragon_guandao,
+            107501 to R.drawable.weapon_spear_of_longinus,
+            108101 to R.drawable.weapon_branch,
+            108102 to R.drawable.weapon_short_rod,
+            108202 to R.drawable.weapon_long_rod,
+            108301 to R.drawable.weapon_goblin_bat,
+            108401 to R.drawable.weapon_umbrella,
+            108402 to R.drawable.weapon_torch,
+            108403 to R.drawable.weapon_statue_of_soteria,
+            108404 to R.drawable.weapon_mallet,
+            108501 to R.drawable.weapon_spy_umbrella,
+            108502 to R.drawable.weapon_monkey_king_bar,
+            109101 to R.drawable.weapon_whip,
+            109201 to R.drawable.weapon_rope_cuffs,
+            109202 to R.drawable.weapon_bullwhip,
+            109301 to R.drawable.weapon_wind_whip,
+            109401 to R.drawable.weapon_thunder_whip,
+            109402 to R.drawable.weapon_lightning_whip,
+            109403 to R.drawable.weapon_gleipnir,
+            109404 to R.drawable.weapon_plasma_whip,
+            109501 to R.drawable.weapon_whip_of_nine_bloody_tails,
+            110101 to R.drawable.weapon_knuckle,
+            110102 to R.drawable.weapon_cotton_work_glove,
+            110201 to R.drawable.weapon_leather_glove,
+            110202 to R.drawable.weapon_iron_knuckle,
+            110301 to R.drawable.weapon_gauntlet,
+            110302 to R.drawable.weapon_wing_knuckle,
+            110401 to R.drawable.weapon_bone_gauntlet,
+            110402 to R.drawable.weapon_shatter_shell_gauntlet,
+            110403 to R.drawable.weapon_glass_knuckle,
+            110404 to R.drawable.weapon_phoenix_gloves,
+            110405 to R.drawable.weapon_one_inch_punch,
+            110406 to R.drawable.weapon_divine_fist,
+            110407 to R.drawable.weapon_bloodwing_knuckle,
+            110408 to R.drawable.weapon_frost_petal_hand,
+            110409 to R.drawable.weapon_buddha_s_palm,
+            110410 to R.drawable.weapon_brasil_gauntlet,
+            110411 to R.drawable.weapon_white_claw_punch,
+            110412 to R.drawable.weapon_imperial_silk_glove,
+            108103 to R.drawable.weapon_bamboo,
+            111201 to R.drawable.weapon_tonfa,
+            111301 to R.drawable.weapon_police_baton,
+            111401 to R.drawable.weapon_ryukyu_tonfa,
+            111402 to R.drawable.weapon_tactical_tonfa,
+            111403 to R.drawable.weapon_mai_sok,
+            111404 to R.drawable.weapon_plasma_tonfa,
+            112103 to R.drawable.weapon_iron_ball,
+            112105 to R.drawable.weapon_base_ball,
+            112202 to R.drawable.weapon_grenade,
+            112203 to R.drawable.weapon_molotov_cocktail,
+            112204 to R.drawable.weapon_sling,
+            112205 to R.drawable.weapon_signed_ball,
+            112301 to R.drawable.weapon_flour_bomb,
+            112302 to R.drawable.weapon_incendiary_bomb,
+            112303 to R.drawable.weapon_ball_lightning,
+            112304 to R.drawable.weapon_flubber,
+            112305 to R.drawable.weapon_grenade_of_antioch,
+            112401 to R.drawable.weapon_david_s_sling,
+            112402 to R.drawable.weapon_smoke_bomb,
+            112403 to R.drawable.weapon_spiky_bouncy_ball,
+            112404 to R.drawable.weapon_high_explosive_grenade,
+            112501 to R.drawable.weapon_ruthenium_marble,
+            113101 to R.drawable.weapon_razor,
+            113102 to R.drawable.weapon_playing_cards,
+            113104 to R.drawable.weapon_chalk,
+            113201 to R.drawable.weapon_dart,
+            113202 to R.drawable.weapon_charm,
+            113203 to R.drawable.weapon_vintage_card,
+            113205 to R.drawable.weapon_throwing_stars,
+            113206 to R.drawable.weapon_onyx_dagger,
+            113207 to R.drawable.weapon_willow_leaf_spike,
+            113301 to R.drawable.weapon_chakram,
+            113302 to R.drawable.weapon_apricot_flower_tag,
+            113401 to R.drawable.weapon_cards_of_tyranny,
+            113402 to R.drawable.weapon_venom_dart,
+            113403 to R.drawable.weapon_dharma_chakram,
+            113404 to R.drawable.weapon_plumbata,
+            113405 to R.drawable.weapon_mystic_jade_charm,
+            113406 to R.drawable.weapon_fuhma_shuriken,
+            113408 to R.drawable.weapon_frost_venom_dart,
+            113409 to R.drawable.weapon_azure_dagger,
+            113410 to R.drawable.weapon_flechette,
+            113411 to R.drawable.weapon_wind_and_fire_wheels,
+            113412 to R.drawable.weapon_death_rune,
+            113501 to R.drawable.weapon_sudarsana,
+            113502 to R.drawable.weapon_petal_torrent,
+            114101 to R.drawable.weapon_bow,
+            114201 to R.drawable.weapon_wooden_bow,
+            114202 to R.drawable.weapon_longbow,
+            114203 to R.drawable.weapon_composite_bow,
+            114301 to R.drawable.weapon_strong_bow,
+            114302 to R.drawable.weapon_stallion_bow,
+            114303 to R.drawable.weapon_mighty_bow,
+            114304 to R.drawable.weapon_pellet_bow,
+            114401 to R.drawable.weapon_ancient_bolt,
+            114402 to R.drawable.weapon_scorchbow,
+            114403 to R.drawable.weapon_golden_ratio_bow,
+            114405 to R.drawable.weapon_twinbow,
+            114501 to R.drawable.weapon_elemental_bow,
+            114502 to R.drawable.weapon_failnaught,
+            115101 to R.drawable.weapon_short_crossbow,
+            115201 to R.drawable.weapon_long_crossbow,
+            115202 to R.drawable.weapon_crossbow,
+            115301 to R.drawable.weapon_power_crossbow,
+            115302 to R.drawable.weapon_sniper_bow,
+            115303 to R.drawable.weapon_heavy_crossbow,
+            115401 to R.drawable.weapon_steel_bow,
+            115402 to R.drawable.weapon_the_legend_of_the_general,
+            115403 to R.drawable.weapon_ballista,
+            115404 to R.drawable.weapon_sniper_crossbow,
+            115405 to R.drawable.weapon_the_golden_ghost,
+            115501 to R.drawable.weapon_sharanga,
+            116101 to R.drawable.weapon_walter_ppk,
+            116201 to R.drawable.weapon_magnum_python,
+            116202 to R.drawable.weapon_beretta_m92f,
+            116301 to R.drawable.weapon_fn57,
+            116401 to R.drawable.weapon_double_revolver_sp,
+            116402 to R.drawable.weapon_magnum_anaconda,
+            116403 to R.drawable.weapon_devil_s_marksman,
+            116404 to R.drawable.weapon_elegance,
+            116405 to R.drawable.weapon_electron_blaster,
+            116406 to R.drawable.weapon_magnum_boa,
+            116501 to R.drawable.weapon_kelte,
+            117101 to R.drawable.weapon_fedorova,
+            117201 to R.drawable.weapon_stg44,
+            117301 to R.drawable.weapon_ak_47,
+            117401 to R.drawable.weapon_m16a1,
+            117402 to R.drawable.weapon_machine_gun,
+            117403 to R.drawable.weapon_gatling_gun,
+            117404 to R.drawable.weapon_ak_12,
+            117405 to R.drawable.weapon_xcr,
+            118101 to R.drawable.weapon_long_rifle,
+            118201 to R.drawable.weapon_springfield,
+            118301 to R.drawable.weapon_harpoon_gun,
+            118401 to R.drawable.weapon_golden_rifle,
+            118402 to R.drawable.weapon_railgun,
+            118403 to R.drawable.weapon_tac_50,
+            118404 to R.drawable.weapon_intervention,
+            118405 to R.drawable.weapon_ntw_20,
+            118406 to R.drawable.weapon_polaris,
+            118501 to R.drawable.weapon_the_deadly_ray,
+            119101 to R.drawable.weapon_steel_chain,
+            119201 to R.drawable.weapon_nunchaku,
+            119301 to R.drawable.weapon_sharper,
+            119302 to R.drawable.weapon_bleeder,
+            119401 to R.drawable.weapon_the_smiting_dragon,
+            119402 to R.drawable.weapon_vibro_nunchaku,
+            120101 to R.drawable.weapon_needle,
+            120201 to R.drawable.weapon_rapier,
+            120301 to R.drawable.weapon_apricot_sword,
+            120302 to R.drawable.weapon_sword_of_justice,
+            120401 to R.drawable.weapon_durendal_mk2,
+            120402 to R.drawable.weapon_mistilteinn,
+            120403 to R.drawable.weapon_volticletto,
+            120404 to R.drawable.weapon_meteor_claymore,
+            120405 to R.drawable.weapon_joyeuse,
+            121101 to R.drawable.weapon_starter_guitar,
+            121201 to R.drawable.weapon_golden_bridge,
+            121202 to R.drawable.weapon_single_pick_up,
+            121301 to R.drawable.weapon_ruby_special,
+            121302 to R.drawable.weapon_humbucker_pickup,
+            121303 to R.drawable.weapon_king_v,
+            121304 to R.drawable.weapon_nocaster,
+            121305 to R.drawable.weapon_super_strat,
+            121306 to R.drawable.weapon_wild_horse,
+            121401 to R.drawable.weapon_bohemian,
+            121402 to R.drawable.weapon_stairway_to_heaven,
+            121403 to R.drawable.weapon_purple_haze,
+            121404 to R.drawable.weapon_satisfaction,
+            121405 to R.drawable.weapon_wonderful_tonight,
+            121406 to R.drawable.weapon_the_wall,
+            121407 to R.drawable.weapon_teen_spirit,
+            201101 to R.drawable.armor_hairband,
+            201102 to R.drawable.armor_hat,
+            201104 to R.drawable.armor_bike_helmet,
+            201201 to R.drawable.armor_mask,
+            201202 to R.drawable.armor_circlet,
+            201203 to R.drawable.armor_beret,
+            201204 to R.drawable.armor_chain_coif,
+            201205 to R.drawable.armor_safety_helmet,
+            201301 to R.drawable.armor_ballistic_helmet,
+            201302 to R.drawable.armor_fire_helmet,
+            201303 to R.drawable.armor_tiara,
+            201401 to R.drawable.armor_crown,
+            201402 to R.drawable.armor_close_helm,
+            201403 to R.drawable.armor_mithril_helm,
+            201404 to R.drawable.armor_crystal_tiara,
+            201405 to R.drawable.armor_motorcycle_helmet,
+            201406 to R.drawable.armor_tactical_ops_helmet,
+            201407 to R.drawable.armor_helm_of_banneret,
+            201408 to R.drawable.armor_laurel_wreath,
+            201409 to R.drawable.armor_imperial_crown,
+            201410 to R.drawable.armor_imperial_burgonet,
+            201411 to R.drawable.armor_chinese_opera_mask,
+            202101 to R.drawable.armor_windbreaker,
+            202103 to R.drawable.armor_monk_s_robe,
+            202105 to R.drawable.armor_wet_suit,
+            202106 to R.drawable.armor_fabric_armor,
+            202201 to R.drawable.armor_leather_armor,
+            202202 to R.drawable.armor_leather_jacker,
+            202203 to R.drawable.armor_turtle_dobok,
+            202205 to R.drawable.armor_military_suit,
+            202206 to R.drawable.armor_patched_robe,
+            202207 to R.drawable.armor_dress,
+            202209 to R.drawable.armor_bikini,
+            202210 to R.drawable.armor_diving_suit,
+            202301 to R.drawable.armor_rider_jacket,
+            202302 to R.drawable.armor_chain_armor,
+            202303 to R.drawable.armor_suit,
+            202304 to R.drawable.armor_qipao,
+            202305 to R.drawable.armor_sheet_metal_armor,
+            202306 to R.drawable.armor_hanbok,
+            202401 to R.drawable.armor_bulletproof_vest,
+            202402 to R.drawable.armor_sunset_armor,
+            202404 to R.drawable.armor_covert_agent_uniform,
+            202405 to R.drawable.armor_optical_camouflage_suit,
+            202406 to R.drawable.armor_rocker_s_jacket,
+            202407 to R.drawable.armor_mithril_armor,
+            202408 to R.drawable.armor_crusader_armor,
+            202410 to R.drawable.armor_amazoness_armor,
+            202411 to R.drawable.armor_dragon_dobok,
+            202412 to R.drawable.armor_commander_s_armor,
+            202413 to R.drawable.armor_butler_s_suit,
+            202415 to R.drawable.armor_battle_suit,
+            202416 to R.drawable.armor_blazing_dress,
+            202417 to R.drawable.armor_eod_suit,
+            202501 to R.drawable.armor_kabana,
+            202502 to R.drawable.armor_queen_of_hearts,
+            203101 to R.drawable.armor_watch,
+            203102 to R.drawable.armor_bandage,
+            203104 to R.drawable.armor_bracelet,
+            203201 to R.drawable.armor_leather_shield,
+            203202 to R.drawable.armor_squad_leader_armband,
+            203203 to R.drawable.armor_bracer,
+            203204 to R.drawable.armor_broken_watch,
+            203301 to R.drawable.armor_sheath,
+            203302 to R.drawable.armor_golden_bracelet,
+            203303 to R.drawable.armor_bazuband,
+            203304 to R.drawable.armor_crimson_bracelet,
+            203401 to R.drawable.armor_steel_shield,
+            203402 to R.drawable.armor_sword_stopper,
+            203403 to R.drawable.armor_draupnir,
+            203404 to R.drawable.armor_mithril_shield,
+            203405 to R.drawable.armor_vital_sign_sensor,
+            203406 to R.drawable.armor_creed_of_the_knight,
+            203407 to R.drawable.armor_sheath_of_shahjahan,
+            203408 to R.drawable.armor_cube_watch,
+            203409 to R.drawable.armor_aegis,
+            203410 to R.drawable.armor_tindalos_band,
+            203501 to R.drawable.armor_bracelet_of_skadi,
+            203502 to R.drawable.armor_radar,
+            203503 to R.drawable.armor_auto_arms,
+            204101 to R.drawable.armor_slippers,
+            204102 to R.drawable.armor_running_shoes,
+            204103 to R.drawable.armor_tights,
+            204201 to R.drawable.armor_knee_pads,
+            204202 to R.drawable.armor_chain_leggings,
+            204203 to R.drawable.armor_high_heels,
+            204204 to R.drawable.armor_heelys,
+            204301 to R.drawable.armor_repaired_slippers,
+            204302 to R.drawable.armor_boots,
+            204401 to R.drawable.armor_steel_knee_pads,
+            204402 to R.drawable.armor_feather_boots,
+            204403 to R.drawable.armor_maverick_runner,
+            204404 to R.drawable.armor_combat_boots,
+            204405 to R.drawable.armor_killer_heels,
+            204406 to R.drawable.armor_straitjacket_sneakers,
+            204407 to R.drawable.armor_mithril_boots,
+            204408 to R.drawable.armor_bucephalus,
+            204409 to R.drawable.armor_eod_boots,
+            204411 to R.drawable.armor_white_rhinos,
+            204410 to R.drawable.armor_glacial_shoes,
+            204501 to R.drawable.armor_boots_of_hermes,
+            204502 to R.drawable.armor_red_shoes,
+            205101 to R.drawable.armor_feather,
+            205102 to R.drawable.armor_flower,
+            205103 to R.drawable.armor_ribbon,
+            205105 to R.drawable.armor_fan,
+            205106 to R.drawable.armor_buddhist_scripture,
+            205107 to R.drawable.armor_box,
+            205108 to R.drawable.armor_holy_grail,
+            205109 to R.drawable.armor_cross,
+            205110 to R.drawable.armor_binoculars,
+            205202 to R.drawable.armor_saint_s_relic,
+            205203 to R.drawable.armor_flower_of_fate,
+            205204 to R.drawable.armor_glass_pieces,
+            205205 to R.drawable.armor_doll,
+            205206 to R.drawable.armor_sniping_scope,
+            205207 to R.drawable.armor_buddha_sarira,
+            205208 to R.drawable.armor_quiver,
+            205209 to R.drawable.armor_feather_duster,
+            205210 to R.drawable.armor_gilded_quill_fan,
+            205211 to R.drawable.armor_shaman_s_bronze,
+            205301 to R.drawable.armor_powder_of_life,
+            205302 to R.drawable.armor_uchiwa,
+            205303 to R.drawable.armor_magazine,
+            205201 to R.drawable.armor_white_crane_fan,
+            205401 to R.drawable.armor_moonlight_pendant,
+            205304 to R.drawable.armor_laced_quiver,
+            205305 to R.drawable.armor_revenge_of_goujian,
+            205404 to R.drawable.armor_schrodinger_s_box,
+            205405 to R.drawable.armor_veritas_lux_mea,
+            205402 to R.drawable.armor_glacial_ice,
+            205403 to R.drawable.armor_true_samadhi_fire,
+            205501 to R.drawable.armor_emerald_tablet
+    )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.record_result_activity)
@@ -138,9 +508,10 @@ class RecordActivitys: AppCompatActivity() {
                 override fun onResponse(call: Call<games>, response: Response<games>) {
                     if (response?.body()?.userGames != null) {
                         recyclerview.adapter = resultRecordAdapter(
-                            response.body()!!.userGames,
-                            charImageArray,
-                            charNameArray
+                                response.body()!!.userGames,
+                                charImageArray,
+                                item,
+                                charNameArray
                         )
                     }
                 }
@@ -617,7 +988,7 @@ class RecordActivitys: AppCompatActivity() {
         centerSquadUnderBar.visibility = View.GONE
 
         // total - solo 버튼 리스너
-        findViewById<TextView>(R.id.total_btn_solo).setOnClickListener {
+        totalBtnSolo.setOnClickListener {
 
             val solo_charcode1 = top3CharArray[0][0].characterCode
             val solo_charcode2 = top3CharArray[0][1].characterCode
@@ -645,10 +1016,20 @@ class RecordActivitys: AppCompatActivity() {
                         String.format("AVG %d %s", top3CharArray[0][2].averageRank, when(top3CharArray[0][2].averageRank){ 1 -> {"st"} 2 -> {"nd"} 3 -> {"rd"} else -> {"th"}}),
                         String.format("%d 게임", top3CharArray[0][2].totalGames)
                 )
+
+            totalBtnSolo.setTypeface(totalBtnSolo.typeface, Typeface.BOLD)
+            totalBtnDuo.setTypeface(totalBtnDuo.typeface, Typeface.NORMAL)
+            totalBtnSquad.setTypeface(totalBtnSquad.typeface, Typeface.NORMAL)
+            totalBtnSolo.setTextColor(Color.parseColor("#E8B32C"))
+            totalBtnDuo.setTextColor(Color.parseColor("#5A5858"))
+            totalBtnSquad.setTextColor(Color.parseColor("#5A5858"))
+            centerSoloUnderBar.visibility = View.VISIBLE
+            centerDuoUnderBar.visibility = View.GONE
+            centerSquadUnderBar.visibility = View.GONE
         }
 
         // total - duo 버튼 리스너
-        findViewById<TextView>(R.id.total_btn_duo).setOnClickListener {
+        totalBtnDuo.setOnClickListener {
 
             val duo_charcode1 = top3CharArray[1][0].characterCode
             val duo_charcode2 = top3CharArray[1][1].characterCode
@@ -676,10 +1057,19 @@ class RecordActivitys: AppCompatActivity() {
                         String.format("AVG %d %s", top3CharArray[1][2].averageRank, when(top3CharArray[1][2].averageRank){ 1 -> {"st"} 2 -> {"nd"} 3 -> {"rd"} else -> {"th"}}),
                         String.format("%d 게임", top3CharArray[1][2].totalGames)
                 )
+            totalBtnSolo.setTypeface(totalBtnSolo.typeface, Typeface.NORMAL)
+            totalBtnDuo.setTypeface(totalBtnDuo.typeface, Typeface.BOLD)
+            totalBtnSquad.setTypeface(totalBtnSquad.typeface, Typeface.NORMAL)
+            totalBtnSolo.setTextColor(Color.parseColor("#5A5858"))
+            totalBtnDuo.setTextColor(Color.parseColor("#E8B32C"))
+            totalBtnSquad.setTextColor(Color.parseColor("#5A5858"))
+            centerSoloUnderBar.visibility = View.GONE
+            centerDuoUnderBar.visibility = View.VISIBLE
+            centerSquadUnderBar.visibility = View.GONE
         }
 
         // total - squad 버튼 리스너
-        findViewById<TextView>(R.id.total_btn_squad).setOnClickListener {
+        totalBtnSquad.setOnClickListener {
 
             val squad_charcode1 = top3CharArray[2][0].characterCode
             val squad_charcode2 = top3CharArray[2][1].characterCode
@@ -707,13 +1097,17 @@ class RecordActivitys: AppCompatActivity() {
                         String.format("AVG %d %s", top3CharArray[2][2].averageRank, when(top3CharArray[2][2].averageRank){ 1 -> {"st"} 2 -> {"nd"} 3 -> {"rd"} else -> {"th"}}),
                         String.format("%d 게임", top3CharArray[2][2].totalGames)
                 )
+
+            totalBtnSolo.setTypeface(totalBtnSolo.typeface, Typeface.NORMAL)
+            totalBtnDuo.setTypeface(totalBtnDuo.typeface, Typeface.NORMAL)
+            totalBtnSquad.setTypeface(totalBtnSquad.typeface, Typeface.BOLD)
+            totalBtnSolo.setTextColor(Color.parseColor("#5A5858"))
+            totalBtnDuo.setTextColor(Color.parseColor("#5A5858"))
+            totalBtnSquad.setTextColor(Color.parseColor("#E8B32C"))
+            centerSoloUnderBar.visibility = View.GONE
+            centerDuoUnderBar.visibility = View.GONE
+            centerSquadUnderBar.visibility = View.VISIBLE
         }
 
-        totalBtnSolo.setTextColor(Color.parseColor("#5A5858"))
-        totalBtnDuo.setTextColor(Color.parseColor("#5A5858"))
-        totalBtnSquad.setTextColor(Color.parseColor("#E8B32C"))
-        centerSoloUnderBar.visibility = View.GONE
-        centerDuoUnderBar.visibility = View.GONE
-        centerSquadUnderBar.visibility = View.VISIBLE
     }
 }
