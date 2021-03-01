@@ -4,10 +4,11 @@
 
     <stroke
         android:width="2px"
-        android:color="#EBE7E7"/>
+        android:color="@color/ic_border"/>
     <size
         android:width="50dp"
         android:height="50dp" />
     <solid
-        android:color="#F7F7F7"/>
+        android:color="@color/ic_box"/>
+
 </shape>

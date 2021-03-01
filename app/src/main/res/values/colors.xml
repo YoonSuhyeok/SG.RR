@@ -9,4 +9,11 @@
     <color name="white">#FFFFFFFF</color>
     <color name="main_black">#373737</color>
     <color name="main_blue">#2F36D6</color>
+    <color name="tab_bar">#908E8E</color>
+    <color name="main_layout">#FFFFFF</color>
+    <color name="ic_box">#F7F7F7</color>
+    <color name="ic_border">#EBE7E7</color>
+    <color name="colorHighlight">#996699</color>
+    <color name="text">#5A5858</color>
+    <color name="main_background">#343434</color>
 </resources>

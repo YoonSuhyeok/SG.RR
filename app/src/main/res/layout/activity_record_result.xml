@@ -1,0 +1,701 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="#FFFFFF"
+    tools:context=".Activity.RecordActivity">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_topBar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/main_layout">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="#F7F7F7"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageButton
+                    android:contentDescription="BackKey"
+                    android:id="@+id/btn_back"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_back1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageButton
+                    android:contentDescription="Search"
+                    android:id="@+id/btn_search"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_baseline_search_24"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_profile"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/profile_btn_renew"
+                    android:layout_width="70dp"
+                    android:layout_height="22dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/ic_renew"
+                    android:text="전적 갱신"
+                    android:textColor="#FFFFFF"
+                    android:textSize="9sp"
+                    app:layout_constraintStart_toStartOf="@+id/profile_rank"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_rank_Percent" />
+
+                <ImageView
+                    android:id="@+id/profile_image"
+                    android:layout_width="125dp"
+                    android:layout_height="120dp"
+                    android:layout_marginStart="24dp"
+                    android:contentDescription="Most"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/profile_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toEndOf="@+id/profile_image"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/profile_rank"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:textSize="10sp"
+                    app:layout_constraintStart_toStartOf="@+id/profile_name"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_name" />
+
+                <TextView
+                    android:id="@+id/profile_averRank"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="24dp"
+                    android:text="#"
+                    android:textSize="30sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/profile_name" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="평균 랭크"
+                    android:textColor="#858585"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="@+id/profile_averRank"
+                    app:layout_constraintStart_toStartOf="@+id/profile_averRank"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_averRank" />
+
+                <TextView
+                    android:id="@+id/profile_rank_Percent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:textSize="10sp"
+                    app:layout_constraintEnd_toEndOf="@+id/profile_rank"
+                    app:layout_constraintStart_toStartOf="@+id/profile_rank"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_rank" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_summary"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="@+id/layout_profile"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout_profile">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/summary_btn_common"
+                    android:layout_width="63dp"
+                    android:layout_height="16dp"
+                    android:layout_marginStart="42dp"
+                    android:layout_marginTop="7dp"
+                    android:background="@drawable/ic_past_btn"
+                    android:text="일반"
+                    android:textSize="10sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/summary_btn_season1"
+                    android:layout_width="63dp"
+                    android:layout_height="16dp"
+                    android:layout_marginStart="12dp"
+                    android:background="@drawable/ic_season_btn"
+                    android:text="시즌1"
+                    android:textSize="10sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/summary_btn_common"
+                    app:layout_constraintStart_toEndOf="@+id/summary_btn_common"
+                    app:layout_constraintTop_toTopOf="@+id/summary_btn_common" />
+
+                <TextView
+                    android:id="@+id/solo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="솔로"
+                    android:textColor="#E2B993"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/duo"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/duo" />
+
+                <ImageView
+                    android:id="@+id/solo_underbar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:contentDescription=" "
+                    app:layout_constraintEnd_toEndOf="@+id/solo"
+                    app:layout_constraintStart_toStartOf="@+id/solo"
+                    app:layout_constraintTop_toBottomOf="@+id/solo"
+                    app:srcCompat="@drawable/ic_underline_solo" />
+
+                <ImageView
+                    android:id="@+id/summary_soloTier"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="8dp"
+                    android:contentDescription="SoloTier"
+                    android:elevation="2dp"
+                    app:layout_constraintEnd_toEndOf="@+id/solo_underbar"
+                    app:layout_constraintStart_toStartOf="@+id/solo_underbar"
+                    app:layout_constraintTop_toBottomOf="@+id/solo_underbar" />
+
+                <TextView
+                    android:id="@+id/summary_txt_soloMMR"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#E2B993"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/summary_soloTier"
+                    app:layout_constraintStart_toStartOf="@+id/summary_soloTier"
+                    app:layout_constraintTop_toBottomOf="@+id/soloTierName" />
+
+                <TextView
+                    android:id="@+id/duo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="듀오"
+                    android:textColor="#69BAE8"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/squad"
+                    app:layout_constraintStart_toEndOf="@+id/solo"
+                    app:layout_constraintTop_toBottomOf="@+id/summary_btn_season1" />
+
+                <ImageView
+                    android:id="@+id/duo_underbar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:contentDescription=" "
+                    app:layout_constraintEnd_toEndOf="@+id/duo"
+                    app:layout_constraintStart_toStartOf="@+id/duo"
+                    app:layout_constraintTop_toBottomOf="@+id/duo"
+                    app:srcCompat="@drawable/ic_underline_duo" />
+
+                <ImageView
+                    android:id="@+id/summary_duoTier"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="8dp"
+                    android:contentDescription="DuoTier"
+                    android:elevation="2dp"
+                    app:layout_constraintEnd_toEndOf="@+id/duo_underbar"
+                    app:layout_constraintStart_toStartOf="@+id/duo_underbar"
+                    app:layout_constraintTop_toBottomOf="@+id/duo_underbar" />
+
+                <TextView
+                    android:id="@+id/summary_txt_duoMMR"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:textColor="#69BAE8"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/summary_duoTier"
+                    app:layout_constraintStart_toStartOf="@+id/summary_duoTier"
+                    app:layout_constraintTop_toBottomOf="@+id/duoTierName" />
+
+                <TextView
+                    android:id="@+id/squad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="스쿼드"
+                    android:textColor="#54A96C"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/duo"
+                    app:layout_constraintTop_toTopOf="@+id/duo" />
+
+                <ImageView
+                    android:id="@+id/squad_underbar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:contentDescription=" "
+                    app:layout_constraintEnd_toEndOf="@+id/squad"
+                    app:layout_constraintStart_toStartOf="@+id/squad"
+                    app:layout_constraintTop_toBottomOf="@+id/squad"
+                    app:srcCompat="@drawable/ic_underline_squad" />
+
+                <ImageView
+                    android:id="@+id/summary_squadTier"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="8dp"
+                    android:contentDescription="SquadTier"
+                    android:elevation="2dp"
+                    app:layout_constraintEnd_toEndOf="@+id/squad"
+                    app:layout_constraintStart_toStartOf="@+id/squad"
+                    app:layout_constraintTop_toBottomOf="@+id/squad_underbar" />
+
+                <TextView
+                    android:id="@+id/summary_txt_squadMMR"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#54A96C"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/summary_squadTier"
+                    app:layout_constraintStart_toStartOf="@+id/summary_squadTier"
+                    app:layout_constraintTop_toBottomOf="@+id/squadTierName" />
+
+                <TextView
+                    android:id="@+id/soloTierName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="@+id/summary_soloTier"
+                    app:layout_constraintStart_toStartOf="@+id/summary_soloTier"
+                    app:layout_constraintTop_toBottomOf="@+id/summary_soloTier" />
+
+                <TextView
+                    android:id="@+id/duoTierName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="@+id/summary_duoTier"
+                    app:layout_constraintStart_toStartOf="@+id/summary_duoTier"
+                    app:layout_constraintTop_toBottomOf="@+id/summary_duoTier" />
+
+                <TextView
+                    android:id="@+id/squadTierName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="@+id/summary_squadTier"
+                    app:layout_constraintStart_toStartOf="@+id/summary_squadTier"
+                    app:layout_constraintTop_toBottomOf="@+id/summary_squadTier" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/ic_box"
+                android:elevation="3dp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="@+id/layout_summary"
+                app:layout_constraintStart_toStartOf="@+id/layout_summary"
+                app:layout_constraintTop_toBottomOf="@+id/layout_summary">
+
+                <TextView
+                    android:id="@+id/total_btn_solo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="솔로"
+                    android:textColor="#E8B32C"
+                    android:textColorHighlight="#FFFFFF"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/total_btn_duo"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:contentDescription=" "
+                    android:id="@+id/center_solo_underbar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    app:layout_constraintEnd_toEndOf="@+id/total_btn_solo"
+                    app:layout_constraintStart_toStartOf="@+id/total_btn_solo"
+                    app:layout_constraintTop_toBottomOf="@+id/total_btn_solo"
+                    app:srcCompat="@drawable/ic_center_underbar" />
+
+                <TextView
+                    android:id="@+id/total_btn_duo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="듀오"
+                    android:textColor="#5A5858"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/total_btn_squad"
+                    app:layout_constraintStart_toEndOf="@+id/total_btn_solo"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:contentDescription=" "
+                    android:id="@+id/center_duo_underbar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    app:layout_constraintEnd_toEndOf="@+id/total_btn_duo"
+                    app:layout_constraintStart_toStartOf="@+id/total_btn_duo"
+                    app:layout_constraintTop_toBottomOf="@+id/total_btn_duo"
+                    app:srcCompat="@drawable/ic_center_underbar" />
+
+                <TextView
+                    android:id="@+id/total_btn_squad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="스쿼드"
+                    android:textColor="#5A5858"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/total_btn_duo"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:contentDescription=" "
+                    android:id="@+id/center_squad_underbar"
+                    android:layout_width="36dp"
+                    android:layout_height="3dp"
+                    android:layout_marginTop="3dp"
+                    app:layout_constraintEnd_toEndOf="@+id/total_btn_squad"
+                    app:layout_constraintStart_toStartOf="@+id/total_btn_squad"
+                    app:layout_constraintTop_toBottomOf="@+id/total_btn_squad"
+                    app:srcCompat="@drawable/ic_center_underbar" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
+                app:layout_constraintStart_toStartOf="@+id/constraintLayout"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+                <ImageView
+                    android:id="@+id/bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription=" "
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/total_summary"
+                    app:layout_constraintStart_toEndOf="@+id/constraintLayout7"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/sidebars" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/bar"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/textView13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="32dp"
+                        android:text="평균 KDA"
+                        android:textColor="#000000"
+                        android:textSize="10sp"
+                        app:layout_constraintStart_toEndOf="@+id/pieChart"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/kda"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="3 / 4 / 5"
+                        android:textColor="#000000"
+                        android:textSize="10sp"
+                        app:layout_constraintEnd_toEndOf="@+id/textView13"
+                        app:layout_constraintStart_toStartOf="@+id/textView13"
+                        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="평균 등수"
+                        android:textColor="#000000"
+                        android:textSize="10sp"
+                        app:layout_constraintEnd_toEndOf="@+id/kda"
+                        app:layout_constraintStart_toStartOf="@+id/kda"
+                        app:layout_constraintTop_toBottomOf="@+id/kda" />
+
+                    <TextView
+                        android:id="@+id/avgRank"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="2.31:1 (50%)"
+                        android:textColor="#000000"
+                        android:textSize="10sp"
+                        app:layout_constraintEnd_toEndOf="@+id/textView2"
+                        app:layout_constraintStart_toStartOf="@+id/textView2"
+                        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+                    <com.github.mikephil.charting.charts.PieChart
+                        android:id="@+id/pieChart"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="18dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/totalGame"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:text="총 게임수"
+                        android:textColor="#000000"
+                        android:textSize="10sp"
+                        app:layout_constraintBottom_toTopOf="@+id/textView13"
+                        app:layout_constraintEnd_toEndOf="@+id/textView13"
+                        app:layout_constraintStart_toStartOf="@+id/textView13" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/total_summary"
+                    android:layout_width="180dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="6dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@+id/bar"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout6"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_box"
+                android:elevation="3dp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="@+id/constraintLayout4"
+                app:layout_constraintStart_toStartOf="@+id/constraintLayout4"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout4">
+
+                <ImageView
+                    android:contentDescription=" "
+                    android:id="@+id/bottom_total_underbar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/recycleTotal"
+                    app:layout_constraintStart_toStartOf="@+id/recycleTotal"
+                    app:layout_constraintTop_toBottomOf="@+id/recycleTotal"
+                    app:srcCompat="@drawable/ic_center_underbar" />
+
+                <TextView
+                    android:id="@+id/recycleTotal"
+                    android:layout_width="28dp"
+                    android:layout_height="21dp"
+                    android:text="전체"
+                    android:textColor="#E8B32C"
+                    android:textSize="15dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/recycleSolo"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/recycleSolo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="솔로"
+                    android:textColor="#5A5858"
+                    android:textSize="15dp"
+                    app:layout_constraintEnd_toStartOf="@+id/recycleDuo"
+                    app:layout_constraintStart_toEndOf="@+id/recycleTotal"
+                    app:layout_constraintTop_toTopOf="@+id/recycleTotal" />
+
+                <ImageView
+                    android:id="@+id/bottom_duo_underbar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:contentDescription=" "
+                    android:visibility="invisible"
+                    app:layout_constraintEnd_toEndOf="@+id/recycleDuo"
+                    app:layout_constraintStart_toStartOf="@+id/recycleDuo"
+                    app:layout_constraintTop_toBottomOf="@+id/recycleDuo"
+                    app:srcCompat="@drawable/ic_center_underbar" />
+
+                <TextView
+                    android:id="@+id/recycleDuo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="듀오"
+                    android:textColor="#5A5858"
+                    android:textSize="15dp"
+                    app:layout_constraintEnd_toStartOf="@+id/recycleSquad"
+                    app:layout_constraintStart_toEndOf="@+id/recycleSolo"
+                    app:layout_constraintTop_toTopOf="@+id/recycleSolo" />
+
+                <ImageView
+                    android:id="@+id/bottom_solo_underbar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:contentDescription=" "
+                    android:visibility="invisible"
+                    app:layout_constraintEnd_toEndOf="@+id/recycleSolo"
+                    app:layout_constraintStart_toStartOf="@+id/recycleSolo"
+                    app:layout_constraintTop_toBottomOf="@+id/recycleSolo"
+                    app:srcCompat="@drawable/ic_center_underbar" />
+
+                <TextView
+                    android:id="@+id/recycleSquad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="스쿼드"
+                    android:textColor="#5A5858"
+                    android:textSize="15dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@+id/recycleDuo"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:contentDescription=" "
+                    android:id="@+id/bottom_squad_underbar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/recycleSquad"
+                    app:layout_constraintStart_toStartOf="@+id/recycleSquad"
+                    app:layout_constraintTop_toBottomOf="@+id/recycleSquad"
+                    app:srcCompat="@drawable/ic_center_underbar" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/score"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/constraintLayout6"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/constraintLayout6"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout6"
+                app:layout_constraintVertical_bias="0.0">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/loding"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="invisible">
+
+        <ProgressBar
+            android:id="@+id/progressBar2"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

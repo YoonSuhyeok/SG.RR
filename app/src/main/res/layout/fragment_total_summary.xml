@@ -5,18 +5,10 @@
     android:id="@+id/frag_total_all"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#FFFFFF"
     android:orientation="vertical"
-    tools:context=".fragment.total_summary_fragment">
+    tools:context=".Fragment.TotalSummaryFragment">
 
     <!-- TODO: Update blank fragment layout -->
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_weight="0"
-        android:text="total - 전체" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/total_c1"
@@ -28,8 +20,8 @@
             android:id="@+id/total_txt_avRank1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="AVG 123th"
-            android:textSize="8dp"
+            android:layout_marginStart="16dp"
+            android:textSize="8sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/total_img_c1"
             app:layout_constraintTop_toBottomOf="@+id/total_txt_cname1" />
@@ -38,17 +30,20 @@
             android:id="@+id/total_txt_cname1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="아드리아나"
-            android:textSize="8dp"
+            android:layout_marginStart="16dp"
+            android:textSize="8sp"
             app:layout_constraintBottom_toTopOf="@+id/total_txt_avRank1"
             app:layout_constraintStart_toEndOf="@+id/total_img_c1"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/total_img_c1"
-            android:layout_width="26dp"
-            android:layout_height="26dp"
-            android:layout_marginStart="16dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginBottom="6dp"
+            android:contentDescription="Most1"
+            android:elevation="2dp"
+            android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -59,8 +54,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:text="123게임"
-            android:textSize="8dp"
+            android:textSize="8sp"
             app:layout_constraintBottom_toBottomOf="@+id/total_txt_avRank1"
             app:layout_constraintStart_toEndOf="@+id/total_txt_avRank1"
             app:layout_constraintTop_toTopOf="@+id/total_txt_avRank1" />
@@ -76,8 +70,8 @@
             android:id="@+id/total_txt_avRank2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="AVG 123th"
-            android:textSize="8dp"
+            android:layout_marginStart="16dp"
+            android:textSize="8sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/total_img_c2"
             app:layout_constraintTop_toBottomOf="@+id/total_txt_cname2" />
@@ -86,17 +80,19 @@
             android:id="@+id/total_txt_cname2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="실비아"
-            android:textSize="8dp"
+            android:layout_marginStart="16dp"
+            android:textSize="8sp"
             app:layout_constraintBottom_toTopOf="@+id/total_txt_avRank2"
             app:layout_constraintStart_toEndOf="@+id/total_img_c2"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/total_img_c2"
-            android:layout_width="26dp"
-            android:layout_height="26dp"
-            android:layout_marginStart="16dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginBottom="6dp"
+            android:contentDescription="Most2"
+            android:elevation="2dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -107,8 +103,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:text="123게임"
-            android:textSize="8dp"
+            android:textSize="8sp"
             app:layout_constraintBottom_toBottomOf="@+id/total_txt_avRank2"
             app:layout_constraintStart_toEndOf="@+id/total_txt_avRank2"
             app:layout_constraintTop_toTopOf="@+id/total_txt_avRank2" />
@@ -124,8 +119,8 @@
             android:id="@+id/total_txt_avRank3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="AVG 123th"
-            android:textSize="8dp"
+            android:layout_marginStart="16dp"
+            android:textSize="8sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/total_img_c3"
             app:layout_constraintTop_toBottomOf="@+id/total_txt_cname3" />
@@ -134,29 +129,29 @@
             android:id="@+id/total_txt_cname3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="키아라"
-            android:textSize="8dp"
+            android:layout_marginStart="16dp"
+            android:textSize="8sp"
             app:layout_constraintBottom_toTopOf="@+id/total_txt_avRank3"
             app:layout_constraintStart_toEndOf="@+id/total_img_c3"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/total_img_c3"
-            android:layout_width="26dp"
-            android:layout_height="26dp"
-            android:layout_marginStart="16dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:contentDescription="Most3"
+            android:elevation="2dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/char_15portrait" />
+            app:srcCompat="@drawable/char_14portrait" />
 
         <TextView
             android:id="@+id/total_txt_games3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:text="123게임"
-            android:textSize="8dp"
+            android:textSize="8sp"
             app:layout_constraintBottom_toBottomOf="@+id/total_txt_avRank3"
             app:layout_constraintStart_toEndOf="@+id/total_txt_avRank3"
             app:layout_constraintTop_toTopOf="@+id/total_txt_avRank3" />
